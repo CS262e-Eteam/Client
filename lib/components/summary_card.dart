@@ -22,11 +22,11 @@ class SummaryCardState extends State<SummaryCard> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(3),
+                    borderRadius: BorderRadius.circular(10),
                     boxShadow: [BoxShadow(
                         color: Colors.grey,
-                        blurRadius: screenWidth * .005,
-                        spreadRadius: screenHeight * .005
+                        blurRadius: screenWidth * .03,
+                        spreadRadius: screenHeight * .0005
                     )]
 
                 ),
@@ -34,20 +34,57 @@ class SummaryCardState extends State<SummaryCard> {
                     padding: EdgeInsets.symmetric(horizontal: .025),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Column(
-                        children: <Widget> [
-//                          Image(
-//                            image: Image.file(),
-//                          ),
-                          Text(
-                            'Random Text',
-                            style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: screenHeight * .02
+                      child: Padding (
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget> [
+    //                        Image(
+    //                            image: AssetImage('/images/test-img.JPG'),
+    //                            height: 100,
+    //                          ),
+
+                            Container (
+                              color: Colors.grey,
+                              height: 100,
+                              width: 300,
+                              child: Text (
+                                'Image'
+                              )
                             ),
-                          ),
-                        ]
+                            Padding (
+                              padding: EdgeInsets.only(bottom: 10),
+                            ),
+                            Text(
+                              'Text Book',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: screenHeight * .02,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 5)
+                            ),
+                            Container(
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.lightGreen,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10)
+                                  )
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(2),
+                                child: Text (
+                                    '\$20',
+                                    textAlign: TextAlign.center,
+                                ),
+                              )
+                            )
+                          ]
+                        )
                       )
                     )
                 )
