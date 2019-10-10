@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:lab03/pages/home_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,12 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World\n From: cs262-Eteam'),
-        ),
+//        appBar: AppBar(
+//
+//        ),
+        body: HomePage(),
       ),
     );
   }
