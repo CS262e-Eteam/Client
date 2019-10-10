@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.title}) : super(key: key);
@@ -16,8 +17,6 @@ class SummaryCardState extends State<SummaryCard> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
-        child: Container(
-            height: 200,
             child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -28,7 +27,6 @@ class SummaryCardState extends State<SummaryCard> {
                         blurRadius: screenWidth * .03,
                         spreadRadius: screenHeight * .0005
                     )]
-
                 ),
                 child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: .025),
@@ -37,51 +35,56 @@ class SummaryCardState extends State<SummaryCard> {
                       child: Padding (
                         padding: EdgeInsets.all(10),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget> [
-    //                        Image(
-    //                            image: AssetImage('/images/test-img.JPG'),
-    //                            height: 100,
-    //                          ),
-
-                            Container (
-                              color: Colors.grey,
+                            Image.asset(
+                              'lib/images/test-img.JPG',
                               height: 100,
-                              width: 300,
-                              child: Text (
-                                'Image'
-                              )
+                              alignment: Alignment.topCenter,
                             ),
-                            Padding (
-                              padding: EdgeInsets.only(bottom: 10),
-                            ),
-                            Text(
-                              'Text Book',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: screenHeight * .02,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 5)
-                            ),
-                            Container(
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.lightGreen,
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(10)
-                                  )
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2),
-                                child: Text (
-                                    '\$20',
-                                    textAlign: TextAlign.center,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding (
+                                  padding: EdgeInsets.only(bottom: 15),
                                 ),
-                              )
+                                Text(
+                                  'Text Book',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(bottom: 5)
+                                ),
+                                Container(
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                        color: Colors.lightGreen,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)
+                                        )
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text (
+                                        '\$20',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(top: 15),
+                                    child: Container(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                            FontAwesomeIcons.heart
+                                        )
+                                    )
+                                )
+                              ],
                             )
                           ]
                         )
@@ -89,7 +92,6 @@ class SummaryCardState extends State<SummaryCard> {
                     )
                 )
             ) // tag container
-        )
     );
   }
 }

@@ -33,12 +33,18 @@ class HomePageState extends State<HomePage> {
             return Container (
               height: 1500,
               child: GridView.count(
+                childAspectRatio: .8,
                 primary: false,
                 padding: const EdgeInsets.all(20),
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
                 crossAxisCount: 2,
                 children: <Widget>[
+                  SummaryCard(),
+                  SummaryCard(),
+                  SummaryCard(),
+                  SummaryCard(),
+                  SummaryCard(),
                   SummaryCard(),
                   SummaryCard(),
                   SummaryCard(),
