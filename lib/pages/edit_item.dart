@@ -68,12 +68,21 @@ class ItemFormState extends State<ItemForm> {
               )
               ),
             ]),
-            RaisedButton(
+            Row(children:
+            <Widget>[
+              RaisedButton(
                 child:Text("Cancel"),
                 onPressed: (){
                   Navigator.pop(context);
                 }
-            )
+              ),
+              RaisedButton(
+                child:Text("Submit"),
+                onPressed: (){
+                  Navigator.pop(context);
+                }
+              )
+            ])
           ])
       ))
   );
