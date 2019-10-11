@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:lab03/item_add_screen.dart';
+import 'package:lab03/pages/home_page.dart';
+
 void main() => runApp(MyApp());
 
 //class MyApp extends StatelessWidget {
@@ -29,6 +31,13 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         title: 'Welcome to eTeam Exchange',
         home: CurrentScreen()
+//      title: 'Welcome to Flutter',
+//      home: Scaffold(
+////        appBar: AppBar(
+////
+////        ),
+//        body: HomePage(),
+//      ),
     );
   }
 }
