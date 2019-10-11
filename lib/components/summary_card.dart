@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lab03/pages/edit_item.dart';
+import 'package:lab03/shared/no_animation_route.dart';
 
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.title}) : super(key: key);
@@ -17,6 +19,15 @@ class SummaryCardState extends State<SummaryCard> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  NoAnimationRoute(
+                      builder: (BuildContext context) =>
+                          ItemForm()
+                  )
+              );
+            },
             child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
