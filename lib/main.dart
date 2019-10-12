@@ -17,6 +17,50 @@ class MyApp extends StatelessWidget {
 //        appBar: AppBar(
 //
 //        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text("bookstore",
+                    style: TextStyle(fontSize: 30) ),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                ),
+              ),
+
+
+              ListTile(
+                title: Text('All Items'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Books'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Clothing'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Add Item'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Login'),
+                onTap: (){
+                  // function goes here
+                },
+              ),
+
+
+            ],
+          ) ,
+        ),
         body: HomePage(),
       ),
     );
