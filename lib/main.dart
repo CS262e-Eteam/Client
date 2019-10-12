@@ -31,17 +31,27 @@ class MyApp extends StatelessWidget {
 
 
               ListTile(
-                title: Text('Option 1'),
+                title: Text('All Items'),
                 onTap: (){//fucntion we need
                 },
               ),
               ListTile(
-                title: Text('Option 2'),
+                title: Text('Books'),
                 onTap: (){//fucntion we need
                 },
               ),
               ListTile(
-                title: Text('Option 3'),
+                title: Text('Clothing'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Add Item'),
+                onTap: (){//fucntion we need
+                },
+              ),
+              ListTile(
+                title: Text('Login'),
                 onTap: (){
                   // function goes here
                 },
