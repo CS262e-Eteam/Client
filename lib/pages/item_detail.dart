@@ -17,6 +17,35 @@ class ItemDetailState extends State<ItemDetail> {
         title: Text("Item Details"),
         backgroundColor: Color(0xff466081),
       ),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 1.5, color: Color(0xFF692A3C)),
+          )
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFF6f913b),
+//              color: Color(0xFFA5C672),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(
+                  "CONTACT SELLER",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )
+          ),
+        )
+      ),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
@@ -81,35 +110,6 @@ class ItemDetailState extends State<ItemDetail> {
           PropertyField(title: "ISBN", value: "123123123123123"),
           PropertyField(title: "BRAND", value: "Company Co."),
           PropertyField(title: "SIZE", value: "Medium"),
-          Padding(
-              padding: EdgeInsets.all(15),
-              child: Container(
-                  height: 1,
-                  color: Color(0xFF692A3C)
-              )
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 45),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xFF6f913b),
-//              color: Color(0xFFA5C672),
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(
-                  "Contact Seller",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              )
-            ),
-          )
         ],
       ),
     );
