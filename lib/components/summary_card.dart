@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lab03/pages/edit_item.dart';
+import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
 
 class SummaryCard extends StatefulWidget {
@@ -24,7 +24,7 @@ class SummaryCardState extends State<SummaryCard> {
                   context,
                   NoAnimationRoute(
                       builder: (BuildContext context) =>
-                          ItemForm()
+                          ItemDetail(),
                   )
               );
             },
