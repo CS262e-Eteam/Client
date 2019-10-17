@@ -5,19 +5,23 @@
 import 'package:flutter/material.dart';
 
 import 'package:lab03/pages/home_page.dart';
+import 'package:lab03/pages/login_page.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-//        appBar: AppBar(
-//
-//        ),
-        drawer: Drawer(
+    return new MaterialApp(
+        home: new HomeScreen());
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
@@ -53,16 +57,17 @@ class MyApp extends StatelessWidget {
               ListTile(
                 title: Text('Login'),
                 onTap: (){
-                  // function goes here
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(builder: (context) => new LoginPage()),
+                  );
                 },
               ),
-
 
             ],
           ) ,
         ),
-        body: HomePage(),
-      ),
+      body: HomePage(),
     );
   }
 }
