@@ -1,9 +1,5 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 
@@ -22,52 +18,69 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text("bookstore",
-                    style: TextStyle(fontSize: 30) ),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.redAccent,
+                  color: Color(0xff466081),
                 ),
-              ),
+                child: Stack(children: <Widget>[
+                  Align(alignment: Alignment.bottomCenter,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 50.0,
+                      )
+
+                  ),
+
+                  Text("Calvin Marketplace",
+                      style: TextStyle(fontSize: 30) ),
+                ],)
+            ),
 
 
-              ListTile(
-                title: Text('All Items'),
-                onTap: (){//fucntion we need
-                },
-              ),
-              ListTile(
-                title: Text('Books'),
-                onTap: (){//fucntion we need
-                },
-              ),
-              ListTile(
-                title: Text('Clothing'),
-                onTap: (){//fucntion we need
-                },
-              ),
-              ListTile(
-                title: Text('Add Item'),
-                onTap: (){//fucntion we need
-                },
-              ),
-              ListTile(
-                title: Text('Login'),
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(builder: (context) => new LoginPage()),
-                  );
-                },
-              ),
+            ListTile(
+              leading: Icon(Icons.bookmark),
+              title: Text('All Items'),
+              onTap: (){//fucntion we need
+              },
+            ),
+            ListTile(
+              leading: Icon(FontAwesomeIcons.bookOpen),
+              title: Text('Books'),
+              onTap: (){//fucntion we need
+              },
+            ),
+            ListTile(
+              leading: Icon(FontAwesomeIcons.shirtsinbulk),
+              title: Text('Clothing'),
+              onTap: (){//fucntion we need
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add),
+              title: Text('Add Item'),
+              onTap: (){//fucntion we need
+              },
+            ),
+            ListTile(
+              leading: Icon(FontAwesomeIcons.userCircle),
+              title: Text('Login'),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new LoginPage()),
+                );
+              },
+            ),
 
-            ],
-          ) ,
-        ),
+
+          ],
+        ) ,
+      ),
       body: HomePage(),
     );
   }
 }
+
