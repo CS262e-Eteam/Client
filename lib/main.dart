@@ -4,6 +4,7 @@ import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 
 import 'package:lab03/shared/globals.dart' as globals;
+import 'package:lab03/shared/colors.dart' as colors;
 
 void main() => runApp(MyApp());
 
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xff466081),
+                  color: colors.grayBlue,
                 ),
                 child: Stack(children: <Widget>[
                   Align(alignment: Alignment.bottomCenter,

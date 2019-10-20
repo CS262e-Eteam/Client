@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:lab03/shared/colors.dart' as colors;
+
 class LoginPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState(){
@@ -19,7 +21,7 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
 			title: Text("Login"),
-			backgroundColor: Color(0xff466081),
+			backgroundColor: colors.grayBlue,
 	  ),
 		body: ListView(
 			padding: EdgeInsets.all(20),
@@ -106,7 +108,7 @@ class LoginPageState extends State<LoginPage> {
 				const SizedBox(height: 30),
 				RaisedButton(
 					child:Text("Log In"),
-					color: Colors.blue,
+					color: colors.teal,
 					onPressed: (){
 					}
 				)
