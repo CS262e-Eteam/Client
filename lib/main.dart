@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 
+import 'package:lab03/shared/globals.dart' as globals;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,10 +33,8 @@ class HomeScreen extends StatelessWidget {
                         backgroundColor: Colors.white,
                         radius: 50.0,
                       )
-
                   ),
-
-                  Text("Calvin Marketplace",
+                  Text(globals.appName,
                       style: TextStyle(fontSize: 30) ),
                 ],)
             ),

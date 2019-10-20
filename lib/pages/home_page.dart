@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab03/components/summary_card.dart';
+import 'package:lab03/shared/globals.dart' as globals;
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -23,7 +24,7 @@ class HomePageState extends State<HomePage> {
         expandedHeight: 250.0,
         flexibleSpace: FlexibleSpaceBar(
           title: Text(
-            'Calvin Marketplace'
+            globals.appName,
           ),
         ),
       ),
