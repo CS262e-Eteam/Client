@@ -18,7 +18,7 @@ class ItemFormState extends State<ItemForm> {
           margin: EdgeInsets.all(16.0),
           padding: EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: Color(0xFFA5C672),
+//            color: Color(0xFFA5C672),
             border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(3.0)),
           ),

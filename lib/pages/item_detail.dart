@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/components/property_field.dart';
 
+import 'package:lab03/shared/colors.dart' as colors;
+
+
 class ItemDetail extends StatefulWidget{
   @override
   State<StatefulWidget> createState(){
@@ -15,20 +18,19 @@ class ItemDetailState extends State<ItemDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Item Details"),
-        backgroundColor: Color(0xff466081),
+        backgroundColor: colors.grayBlue,
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(
-            top: BorderSide(width: 1.5, color: Color(0xFF692A3C)),
+            top: BorderSide(width: 1.5, color: colors.lightBerry),
           )
         ),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Container(
               decoration: BoxDecoration(
-                color: Color(0xFF6f913b),
-//              color: Color(0xFFA5C672),
+                color: colors.darkGreen,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Padding(
@@ -71,7 +73,7 @@ class ItemDetailState extends State<ItemDetail> {
             child: Container(
               width: 50,
               decoration: BoxDecoration(
-                color: Color(0xFFA5C672),
+                color: colors.lightGreen,
                 borderRadius: BorderRadius.all(
                   Radius.circular(16)
                 )
@@ -82,9 +84,8 @@ class ItemDetailState extends State<ItemDetail> {
                   '\$20',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
                     fontSize: 16,
-    ),
+                  ),
                 ),
               ),
 
@@ -101,7 +102,7 @@ class ItemDetailState extends State<ItemDetail> {
             padding: EdgeInsets.all(15),
             child: Container(
               height: 1,
-              color: Color(0xFF692A3C)
+              color: colors.lightBerry,
             )
           ),
           PropertyField(title: "CONDITION", value: "New"),

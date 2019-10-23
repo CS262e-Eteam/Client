@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
 
+import 'package:lab03/shared/colors.dart' as colors;
+
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.title}) : super(key: key);
 
@@ -73,7 +75,7 @@ class SummaryCardState extends State<SummaryCard> {
                                 Container(
                                     width: 50,
                                     decoration: BoxDecoration(
-                                        color: Colors.lightGreen,
+                                        color: colors.lightGreen,
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)
                                         )

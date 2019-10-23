@@ -3,6 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 
+import 'package:lab03/shared/globals.dart' as globals;
+import 'package:lab03/shared/colors.dart' as colors;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -23,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xff466081),
+                  color: colors.grayBlue,
                 ),
                 child: Stack(children: <Widget>[
                   Align(alignment: Alignment.bottomCenter,
@@ -31,10 +34,8 @@ class HomeScreen extends StatelessWidget {
                         backgroundColor: Colors.white,
                         radius: 50.0,
                       )
-
                   ),
-
-                  Text("Calvin Marketplace",
+                  Text(globals.appName,
                       style: TextStyle(fontSize: 30) ),
                 ],)
             ),

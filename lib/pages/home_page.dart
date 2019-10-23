@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab03/components/summary_card.dart';
+import 'package:lab03/shared/globals.dart' as globals;
+import 'package:lab03/shared/colors.dart' as colors;
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -18,12 +20,12 @@ class HomePageState extends State<HomePage> {
   return CustomScrollView(
     slivers: <Widget>[
       const SliverAppBar(
-        backgroundColor: Color(0xff466081),
+        backgroundColor: colors.grayBlue,
         pinned: true,
         expandedHeight: 250.0,
         flexibleSpace: FlexibleSpaceBar(
           title: Text(
-            'Calvin Marketplace'
+            globals.appName,
           ),
         ),
       ),
