@@ -3,9 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/components/property_field.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/types/item.dart';
 
 
 class ItemDetail extends StatefulWidget{
+  ItemDetail({Key key, this.item}) : super(key: key);
+
+  final Item item;
+
   @override
   State<StatefulWidget> createState(){
     return ItemDetailState();
@@ -59,7 +64,7 @@ class ItemDetailState extends State<ItemDetail> {
             padding: EdgeInsets.only(top: 20),
           ),
           Text(
-            "Textbook Title",
+            widget.item.name,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20
@@ -70,47 +75,81 @@ class ItemDetailState extends State<ItemDetail> {
           ),
           Container(
             alignment: Alignment.topLeft,
-            child: Container(
-              width: 50,
-              decoration: BoxDecoration(
-                color: colors.lightGreen,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(16)
-                )
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(6),
-                child: Text (
-                  '\$20',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
+            child: Row(
+              children: <Widget>[
+                widget.item.price != 0 || !widget.item.isOBO ?
+                Container(
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: colors.lightGreen,
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(16)
+                      )
                   ),
-                ),
-              ),
-
-            ),
+                  child: Padding(
+                    padding: EdgeInsets.all(6),
+                    child: Text (
+                      '\$' + widget.item.price.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ) : Container(),
+                widget.item.price != 0 || !widget.item.isOBO ?
+                Padding(
+                    padding: EdgeInsets.only(right: 10)
+                ) : Container(),
+                widget.item.isOBO ?
+                Container(
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: colors.teal,
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(16)
+                      )
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(6),
+                    child: Text (
+                      'OBO',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ) : Container(),
+              ],
+            )
           ),
+          widget.item.description != '' ?
           Padding(
             padding: EdgeInsets.only(bottom: 10),
-          ),
+          ) : Container(),
           Text(
-            "This book is a good textbook. It is a useful book to have for a computer science"
-              "for a class at Calvin University. This is a test description."
+            widget.item.description,
           ),
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(10),
             child: Container(
               height: 1,
               color: colors.lightBerry,
             )
           ),
-          PropertyField(title: "CONDITION", value: "New"),
-          PropertyField(title: "AUTHOR", value: "Example Author"),
-          PropertyField(title: "CLASS", value: "CS 202"),
-          PropertyField(title: "ISBN", value: "123123123123123"),
-          PropertyField(title: "BRAND", value: "Company Co."),
-          PropertyField(title: "SIZE", value: "Medium"),
+          widget.item.condition != null ?
+            PropertyField(title: "CONDITION", value: widget.item.condition) : Container(),
+          widget.item.author != null ?
+            PropertyField(title: "AUTHOR", value: widget.item.author) : Container(),
+          widget.item.course != null ?
+            PropertyField(title: "CLASS", value: widget.item.course) : Container(),
+          widget.item.iSBN != null ?
+            PropertyField(title: "ISBN", value: widget.item.iSBN) : Container(),
+          widget.item.brand != null ?
+            PropertyField(title: "BRAND", value: widget.item.brand) : Container(),
+          widget.item.size != null ?
+            PropertyField(title: "SIZE", value: widget.item.size) : Container(),
         ],
       ),
     );

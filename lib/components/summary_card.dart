@@ -28,7 +28,7 @@ class SummaryCardState extends State<SummaryCard> {
                   context,
                   NoAnimationRoute(
                       builder: (BuildContext context) =>
-                          ItemDetail(),
+                          ItemDetail( item: widget.item ),
                   )
               );
             },

@@ -9,6 +9,7 @@ class Item {
     @required this.name,
     this.description,
     this.imageURL,
+    @required this.condition,
     @required this.category,
     this.iSBN,
     this.author,
@@ -25,6 +26,7 @@ class Item {
   final String name;
   final String description;
   final String imageURL;
+  final String condition;
   final String category;
 
   final String iSBN;
