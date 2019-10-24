@@ -124,4 +124,30 @@ List<Item> testItems = [
       gender: 'Mens',
       brand: 'Adidas'
     ),
+    Item(
+        id: 7,
+        sellerId: 1,
+        price: 5,
+        isOBO: false,
+        name: 'T Shirt',
+        description: '',
+        imageURL: '',
+        category: 'Clothing',
+        size: 'Medium',
+        gender: 'Mens',
+        brand: 'American Eagle'
+    ),
+    Item(
+        id: 8,
+        sellerId: 1,
+        price: 5,
+        isOBO: false,
+        name: 'Black Adidas Shoes',
+        description: '',
+        imageURL: '',
+        category: 'Clothing',
+        size: '7',
+        gender: 'Mens',
+        brand: 'Adidas'
+    ),
   ];

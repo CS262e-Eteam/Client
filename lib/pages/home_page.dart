@@ -14,16 +14,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
-//  <Widget>[] createCards() {
-//    List<Widget> cards = [];
-//
-//    globals.testItems.forEach((item) => {
-//      cards.add(SummaryCard(item: item));
-//    });
-//
-//    return cards;
-//  }
-
   @override
   Widget build(BuildContext context) {
 
@@ -48,7 +38,9 @@ class HomePageState extends State<HomePage> {
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               return Container (
-                height: 1500,
+                height: globals.testItems.length % 2 == 0 ?
+                  (globals.testItems.length ~/ 2).toDouble() * 250 :
+                  (globals.testItems.length ~/ 2).toDouble() * 250 + 250,
                 child: GridView.count(
                   childAspectRatio: .8,
                   primary: false,
@@ -57,21 +49,6 @@ class HomePageState extends State<HomePage> {
                   mainAxisSpacing: 20,
                   crossAxisCount: 2,
                   children: summaryCards,
-  //                children: <Widget>[
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  ////                  SummaryCard(),
-  //                  createCards()
-  //                ]
                 )
               );
             },

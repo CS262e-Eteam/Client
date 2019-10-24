@@ -76,6 +76,7 @@ class SummaryCardState extends State<SummaryCard> {
                                 ),
                                 Row(
                                   children: <Widget>[
+                                    widget.item.price != 0 || !widget.item.isOBO ?
                                     Container(
                                         width: 50,
                                         decoration: BoxDecoration(
@@ -91,11 +92,13 @@ class SummaryCardState extends State<SummaryCard> {
                                             textAlign: TextAlign.center,
                                           ),
                                         )
-                                    ),
+                                    ) : Container(),
+                                    widget.item.price != 0 || !widget.item.isOBO ?
                                     Padding(
                                       padding: EdgeInsets.only(right: 10)
-                                    ),
-                                    widget.item.isOBO ? Container(
+                                    ) : Container(),
+                                    widget.item.isOBO ?
+                                    Container(
                                         width: 50,
                                         decoration: BoxDecoration(
                                             color: colors.teal,
