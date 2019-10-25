@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
 
 import 'package:lab03/types/item.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/shared/globals.dart' as globals;
 
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.item}) : super(key: key);
@@ -118,12 +120,7 @@ class SummaryCardState extends State<SummaryCard> {
                                 ),
                                 Padding(
                                     padding: EdgeInsets.only(top: 15),
-                                    child: Container(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                            FontAwesomeIcons.heart
-                                        )
-                                    )
+                                    child: FavoriteHeart(itemId: widget.item.id)
                                 )
                               ],
                             )
