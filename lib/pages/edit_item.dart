@@ -18,7 +18,7 @@ class ItemFormState extends State<ItemForm> {
           margin: EdgeInsets.all(16.0),
           padding: EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: Color(0xFFA5C672),
+            color: Color(0xFFFFFFFF),
             border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(3.0)),
           ),
@@ -68,12 +68,21 @@ class ItemFormState extends State<ItemForm> {
               )
               ),
             ]),
-            RaisedButton(
+            Row(children:
+            <Widget>[
+              RaisedButton(
                 child:Text("Cancel"),
                 onPressed: (){
                   Navigator.pop(context);
                 }
-            )
+              ),
+              RaisedButton(
+                child:Text("Submit"),
+                onPressed: (){
+                  Navigator.pop(context);
+                }
+              )
+            ])
           ])
       ))
   );
