@@ -14,54 +14,48 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
-
   @override
   Widget build(BuildContext context) {
-  return CustomScrollView(
-    slivers: <Widget>[
-      const SliverAppBar(
-        backgroundColor: colors.grayBlue,
-        pinned: true,
-        expandedHeight: 250.0,
-        flexibleSpace: FlexibleSpaceBar(
-          title: Text(
-            globals.appName,
+
+    List<Widget> summaryCards = [];
+    globals.testItems.forEach((item) {
+      summaryCards.add(SummaryCard(item: item));
+    });
+
+    return CustomScrollView(
+      slivers: <Widget>[
+        const SliverAppBar(
+          backgroundColor: colors.grayBlue,
+          pinned: true,
+          expandedHeight: 250.0,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              globals.appName,
+            ),
           ),
         ),
-      ),
-      SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            return Container (
-              height: 1500,
-              child: GridView.count(
-                childAspectRatio: .8,
-                primary: false,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-                crossAxisCount: 2,
-                children: <Widget>[
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                  SummaryCard(),
-                ]
-              )
-            );
-          },
-          childCount: 1,
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return Container (
+                height: globals.testItems.length % 2 == 0 ?
+                  (globals.testItems.length ~/ 2).toDouble() * 250 :
+                  (globals.testItems.length ~/ 2).toDouble() * 250 + 250,
+                child: GridView.count(
+                  childAspectRatio: .8,
+                  primary: false,
+                  padding: const EdgeInsets.all(20),
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 2,
+                  children: summaryCards,
+                )
+              );
+            },
+            childCount: 1,
+          ),
         ),
-      ),
-    ],
-  );
+      ],
+    );
   }
 }
