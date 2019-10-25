@@ -1,23 +1,17 @@
 import 'package:lab03/types/item.dart';
+import 'package:lab03/types/user.dart';
 
 // This is where variables that are used globally can be stored
 
 const String appName = "Calvin Marketplace";
 
-Item item = Item(
-  id: 1,
-  sellerId: 1,
-  price: 25,
-  isOBO: false,
-  name: 'Computer Networking',
-  description: 'This is a useful textbook that you absolutely need',
-  imageURL: '',
-  category: 'Textbooks',
-  condition: 'New',
-  iSBN: '123412341234',
-  author: 'John Doe',
-  course: 'CS 342',
-);
+User testUser = User(
+    id: 1,
+    userName: 'testUser',
+    email: 'test@test.com',
+    favoritedItems: [1, 3, 6],
+    postedItems: [1, 2, 3, 7, 8, 9]
+  );
 
 List<Item> testItems = [
     Item(
@@ -134,7 +128,7 @@ List<Item> testItems = [
       brand: 'Adidas'
     ),
     Item(
-        id: 7,
+        id: 9,
         sellerId: 1,
         price: 5,
         isOBO: false,
@@ -148,7 +142,7 @@ List<Item> testItems = [
         brand: 'American Eagle'
     ),
     Item(
-        id: 8,
+        id: 10,
         sellerId: 1,
         price: 5,
         isOBO: false,
