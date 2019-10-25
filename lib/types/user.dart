@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:lab03/types/item.dart';
 
 class User {
   User({

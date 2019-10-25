@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 
@@ -62,7 +63,11 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.add),
               title: Text('Add Item'),
-              onTap: (){//fucntion we need
+              onTap: (){
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new ItemForm()),
+                );
               },
             ),
             ListTile(
@@ -75,8 +80,6 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-
-
           ],
         ) ,
       ),
@@ -84,4 +87,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

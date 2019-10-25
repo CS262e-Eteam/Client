@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/components/property_field.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
-import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 
@@ -75,17 +73,6 @@ class ItemDetailState extends State<ItemDetail> {
                       fontSize: 20
                   )
               ),
-//              Container(
-//                alignment: Alignment.bottomRight,
-//                child: globals.testUser.favoritedItems.contains(widget.item.id) ?
-//                Icon(
-//                  FontAwesomeIcons.solidHeart,
-//                  color: colors.lightestBerry,
-//                ) :
-//                Icon(
-//                  FontAwesomeIcons.heart
-//                )
-//              )
               FavoriteHeart(itemId: widget.item.id)
             ],
           ),
@@ -174,5 +161,3 @@ class ItemDetailState extends State<ItemDetail> {
     );
   }
 }
-
-
