@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/edit_item.dart';
+import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/no_animation_route.dart';
+import 'package:lab03/pages/item_detail.dart';
 
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.title}) : super(key: key);
@@ -24,6 +26,7 @@ class SummaryCardState extends State<SummaryCard> {
                   context,
                   NoAnimationRoute(
                       builder: (BuildContext context) =>
+                          //ItemDetail(item:globals.item)
                           ItemForm()
                   )
               );
