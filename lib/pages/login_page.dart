@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:lab03/pages/signup_page.dart';
 import 'package:lab03/shared/colors.dart' as colors;
 
 class LoginPage extends StatefulWidget{
@@ -12,15 +12,15 @@ class LoginPage extends StatefulWidget{
 class LoginPageState extends State<LoginPage> {
   final emailLogin = TextEditingController();
   final passwordLogin = TextEditingController();
-  final emailCreate = TextEditingController();
-  final emailConfirm = TextEditingController();
-  final passwordCreate = TextEditingController();
-  final passwordConfirm = TextEditingController();
+//  final emailCreate = TextEditingController();
+//  final emailConfirm = TextEditingController();
+//  final passwordCreate = TextEditingController();
+//  final passwordConfirm = TextEditingController();
 
   @override
   Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
-			title: Text("Login"),
+			title: Text("Login!"),
 			backgroundColor: colors.grayBlue,
 	  ),
 		body: ListView(
@@ -111,7 +111,39 @@ class LoginPageState extends State<LoginPage> {
 					color: colors.teal,
 					onPressed: (){
 					}
-				)
+				),
+				Padding(
+					padding: EdgeInsets.only(top: 45)
+				),
+				GestureDetector (
+					child: Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						children: <Widget>[
+							Text(
+								"Don't have an account yet? ",
+								textAlign: TextAlign.center,
+								style: TextStyle(
+									fontSize: 14,
+//									color: colors.teal,
+								),
+							),
+							Text(
+								"Sign-up",
+								textAlign: TextAlign.center,
+								style: TextStyle(
+									fontSize: 14,
+									color: colors.teal,
+								),
+							)
+						],
+					),
+					onTap: () {
+					Navigator.push(
+						context,
+						new MaterialPageRoute(builder: (context) => new SignUpPage()),
+					);
+				}
+				),
 			],
 		)
   );
