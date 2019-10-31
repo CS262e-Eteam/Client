@@ -12,6 +12,9 @@ class LoginPage extends StatefulWidget{
 class LoginPageState extends State<LoginPage> {
   final emailLogin = TextEditingController();
   final passwordLogin = TextEditingController();
+//	final itemName = TextEditingController();
+	FocusNode emailNode = new FocusNode();
+	FocusNode passwordNode = new FocusNode();
 //  final emailCreate = TextEditingController();
 //  final emailConfirm = TextEditingController();
 //  final passwordCreate = TextEditingController();
@@ -26,6 +29,7 @@ class LoginPageState extends State<LoginPage> {
 		body: ListView(
 			padding: EdgeInsets.all(20),
 			children: <Widget>[
+
 				Text(
 					"Login",
 					style: TextStyle(
@@ -38,50 +42,48 @@ class LoginPageState extends State<LoginPage> {
 				),
 				Padding(
 					padding: EdgeInsets.symmetric(horizontal: 10),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: <Widget>[
-							Text(
-								"Email"
+					child: TextFormField(
+						controller: emailLogin,
+						focusNode: emailNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter an Email";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Email",
+							labelStyle: TextStyle(
+								color: emailNode.hasFocus ? colors.lightBerry : Colors.black
 							),
-							TextField(
-								controller: emailLogin,
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
 							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Password"
-							),
-							TextField(
-								controller: passwordLogin,
-							),
-						],
-					)
+						),
+					),
 				),
 				Padding(
-					padding: EdgeInsets.only(bottom: 15)
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: passwordLogin,
+						focusNode: passwordNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Password";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Password",
+							labelStyle: TextStyle(
+								color: passwordNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
 				),
-//				Padding(
-//					padding: EdgeInsets.all(15),
-//					child: Container(
-//						height: 1,
-//						color: Color(0xff692a3c)
-//					)
-//				),
-//				Padding(
-//					padding: EdgeInsets.only(bottom: 15)
-//				),
-//				Text(
-//					"Create Account",
-//					style: TextStyle(
-//						fontSize: 24,
-//						fontWeight: FontWeight.bold,
-//					),
-//				),
-//				Padding(
-//					padding: EdgeInsets.only(bottom: 15)
-//				),
 //				Padding(
 //					padding: EdgeInsets.symmetric(horizontal: 10),
 //					child: Column(
@@ -100,11 +102,15 @@ class LoginPageState extends State<LoginPage> {
 //								"Password"
 //							),
 //							TextField(
-//								controller: emailLogin,
+//								controller: passwordLogin,
 //							),
 //						],
 //					)
 //				),
+				Padding(
+					padding: EdgeInsets.only(bottom: 15)
+				),
+
 				const SizedBox(height: 30),
 				RaisedButton(
 					child:Text("Log In"),
