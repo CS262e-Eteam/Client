@@ -1,3 +1,8 @@
+/*
+Item Detail Page - shows more extensive details about an item and allows a user to contact user
+@params: item, Item: the item whose details to display
+ */
+
 import 'package:flutter/material.dart';
 import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/components/property_field.dart';

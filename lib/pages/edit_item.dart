@@ -1,3 +1,7 @@
+/*
+Edit Item Page (can also be used to add an item)
+ */
+
 import 'package:flutter/material.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;

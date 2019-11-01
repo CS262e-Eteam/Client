@@ -1,3 +1,7 @@
+/*
+Globals - stores variables that then can be used throughout the app for consistency
+ */
+
 import 'package:lab03/types/item.dart';
 import 'package:lab03/types/user.dart';
 
