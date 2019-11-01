@@ -20,14 +20,14 @@ class SignUpPageState extends State<SignUpPage> {
 	@override
 	Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
-			title: Text("Login"),
+			title: Text("SignUp"),
 			backgroundColor: colors.grayBlue,
 		),
 		body: ListView(
 			padding: EdgeInsets.all(20),
 			children: <Widget>[
 				Text(
-					"Login",
+					"Get started with a free account",
 					style: TextStyle(
 						fontSize: 24,
 						fontWeight: FontWeight.bold,
@@ -42,6 +42,15 @@ class SignUpPageState extends State<SignUpPage> {
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: <Widget>[
 							Text(
+								"Username"
+							),
+							TextField(
+								controller: emailLogin,
+							),
+							Padding(
+								padding: EdgeInsets.only(bottom: 15)
+							),
+							Text(
 								"Email"
 							),
 							TextField(
@@ -54,7 +63,16 @@ class SignUpPageState extends State<SignUpPage> {
 								"Password"
 							),
 							TextField(
-								controller: emailLogin,
+								controller: passwordCreate,
+							),
+							Padding(
+								padding: EdgeInsets.only(bottom: 15)
+							),
+							Text(
+								"Confirm Password"
+							),
+							TextField(
+								controller: passwordConfirm,
 							),
 						],
 					)
@@ -64,50 +82,17 @@ class SignUpPageState extends State<SignUpPage> {
 				),
 				Padding(
 					padding: EdgeInsets.all(15),
-					child: Container(
-						height: 1,
-						color: colors.lightBerry,
-					)
+//					child: Container(
+//						height: 1,
+//						color: colors.lightBerry,
+//					)
 				),
-				Padding(
-					padding: EdgeInsets.only(bottom: 15)
-				),
-				Text(
-					"Create Account",
-					style: TextStyle(
-						fontSize: 24,
-						fontWeight: FontWeight.bold,
-					),
-				),
-				Padding(
-					padding: EdgeInsets.only(bottom: 15)
-				),
-				Padding(
-					padding: EdgeInsets.symmetric(horizontal: 10),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: <Widget>[
-							Text(
-								"Email"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Password"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-						],
-					)
-				),
-				const SizedBox(height: 30),
+//				Padding(
+//					padding: EdgeInsets.only(bottom: 15)
+//				),
+//				const SizedBox(height: 30),
 				RaisedButton(
-					child:Text("Log In"),
+					child:Text("Sign Up"),
 					color: colors.teal,
 					onPressed: (){
 					}
