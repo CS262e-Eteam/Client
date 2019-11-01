@@ -1,4 +1,6 @@
-// Stores colors using variable names so they can easily be changed
+/*
+Colors - sets color variables that can then be used throughout the app for consistency
+ */
 
 import 'package:flutter/material.dart';
 

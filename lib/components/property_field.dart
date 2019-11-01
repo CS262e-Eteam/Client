@@ -1,3 +1,9 @@
+/*
+Implements a property field
+@params: title, string: the label to use for the property tag (used to determine the icon)
+         value, string: the value of the property
+ */
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

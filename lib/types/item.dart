@@ -1,3 +1,7 @@
+/*
+Defines class Item
+ */
+
 import 'package:flutter/foundation.dart';
 
 class Item {
