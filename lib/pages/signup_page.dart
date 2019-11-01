@@ -10,17 +10,23 @@ class SignUpPage extends StatefulWidget{
 }
 
 class SignUpPageState extends State<SignUpPage> {
-	final emailLogin = TextEditingController();
+	final usernameCreate = TextEditingController();
 	final passwordLogin = TextEditingController();
 	final emailCreate = TextEditingController();
 	final emailConfirm = TextEditingController();
 	final passwordCreate = TextEditingController();
 	final passwordConfirm = TextEditingController();
+	FocusNode usernameCreateNode = new FocusNode();
+	FocusNode emailCreateNode = new FocusNode();
+	FocusNode passwordCreateNode = new FocusNode();
+	FocusNode passwordConfirmNode = new FocusNode();
+
+
 
 	@override
 	Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
-			title: Text("SignUp"),
+			title: Text("Sign Up"),
 			backgroundColor: colors.grayBlue,
 		),
 		body: ListView(
@@ -38,45 +44,93 @@ class SignUpPageState extends State<SignUpPage> {
 				),
 				Padding(
 					padding: EdgeInsets.symmetric(horizontal: 10),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: <Widget>[
-							Text(
-								"Username"
+					child: TextFormField(
+						controller: usernameCreate,
+						focusNode: usernameCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Username";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Username",
+							labelStyle: TextStyle(
+								color: usernameCreateNode.hasFocus ? colors.lightBerry : Colors.black
 							),
-							TextField(
-								controller: emailLogin,
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
 							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Email"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Password"
-							),
-							TextField(
-								controller: passwordCreate,
-							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Confirm Password"
-							),
-							TextField(
-								controller: passwordConfirm,
-							),
-						],
-					)
+						),
+					),
 				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: emailCreate,
+						focusNode: emailCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter an Email";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Email",
+							labelStyle: TextStyle(
+								color: emailCreateNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: passwordCreate,
+						focusNode: emailCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Password";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Create Password",
+							labelStyle: TextStyle(
+								color: passwordCreateNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: passwordConfirm,
+						focusNode: passwordConfirmNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Password";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Confirm Password",
+							labelStyle: TextStyle(
+								color: passwordConfirmNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+
 				Padding(
 					padding: EdgeInsets.only(bottom: 15)
 				),
