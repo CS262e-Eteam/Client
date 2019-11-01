@@ -90,7 +90,7 @@ class SignUpPageState extends State<SignUpPage> {
 					padding: EdgeInsets.symmetric(horizontal: 10),
 					child: TextFormField(
 						controller: passwordCreate,
-						focusNode: emailCreateNode,
+						focusNode: passwordCreateNode,
 						validator: (value) {
 							if (value.isEmpty) return "Please enter a Password";
 							return null;
