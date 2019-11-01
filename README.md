@@ -1,4 +1,4 @@
-## Vision Statment
+## Calvin Marketplace
 
 The goal is to create a cross platform marketplace app for Calvin University students. There is
 currently a Facebook group that allows students to post items they are selling, but there are
