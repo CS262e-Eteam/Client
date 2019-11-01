@@ -25,6 +25,14 @@ class HomePageState extends State<HomePage> {
     return CustomScrollView(
       slivers: <Widget>[
         const SliverAppBar(
+
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.white),
+              // onTap: () {
+              // },
+            ),
+          ],
           backgroundColor: colors.grayBlue,
           pinned: true,
           expandedHeight: 250.0,
