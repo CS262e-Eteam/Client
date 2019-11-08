@@ -429,7 +429,7 @@ class ItemFormState extends State<ItemForm> {
                               Item(
                                   id: 11,
                                   sellerId: 1,
-                                  price: int.parse(itemCost.text),
+                                  price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
                                   description: itemDescription.text,
                                   isOBO: itemOBO,
                                   name: itemName.text,
@@ -439,6 +439,8 @@ class ItemFormState extends State<ItemForm> {
                                   course: itemClass.text,
                                   iSBN: itemISBN.text,
                                   size: itemSize.text,
+                                  gender: itemGender,
+                                  brand: itemBrand.text,
                               )
                           );
 
