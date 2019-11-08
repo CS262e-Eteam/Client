@@ -18,7 +18,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     List<Widget> summaryCards = [];
-    globals.testItems.forEach((item) {
+    globals.testItems.reversed.forEach((item) {
       summaryCards.add(SummaryCard(item: item));
     });
 
