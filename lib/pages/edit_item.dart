@@ -5,6 +5,8 @@ Edit Item Page (can also be used to add an item)
 import 'package:flutter/material.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/shared/globals.dart' as globals;
+import 'package:lab03/types/item.dart';
 
 class ItemForm extends StatefulWidget{
   @override
@@ -425,23 +427,49 @@ class ItemFormState extends State<ItemForm> {
                             ),
                           )
                       ),
-                      Container(
-                          decoration: BoxDecoration(
-                            color: colors.darkGreen,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
-                            child: Text(
-                              "ADD ITEM",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                              ),
-                              textAlign: TextAlign.center,
+                      GestureDetector(
+                        onTap: () {
+                          globals.testItems.add(
+                              Item(
+                                  id: 11,
+                                  sellerId: 1,
+                                  price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
+                                  description: itemDescription.text,
+                                  isOBO: itemOBO,
+                                  name: itemName.text,
+                                  condition: condition,
+                                  category: itemType,
+                                  author: itemAuthor.text,
+                                  course: itemClass.text,
+                                  iSBN: itemISBN.text,
+                                  size: itemSize.text,
+                                  gender: itemGender,
+                                  brand: itemBrand.text,
+                              )
+                          );
+
+                          Navigator.pop(
+                            context,
+                          );
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: colors.darkGreen,
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
                             ),
-                          )
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+                              child: Text(
+                                "ADD ITEM",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                        ),
                       ),
                     ],
                   )
