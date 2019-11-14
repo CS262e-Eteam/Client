@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab03/components/summary_card.dart';
+import 'package:lab03/pages/search_delegate.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 
@@ -24,40 +25,32 @@ class FilterBookState extends State<FilterBook> {
       }
     });
 
-    return CustomScrollView(
-      slivers: <Widget>[
-        const SliverAppBar(
-          backgroundColor: colors.grayBlue,
-          pinned: true,
-          expandedHeight: 250.0,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text(
-              globals.appName,
-            ),
-          ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return Container (
-                height: globals.testItems.length % 2 == 0 ?
-                  (globals.testItems.length ~/ 2).toDouble() * 250 :
-                  (globals.testItems.length ~/ 2).toDouble() * 250 + 250,
-                child: GridView.count(
-                  childAspectRatio: .8,
-                  primary: false,
-                  padding: const EdgeInsets.all(20),
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  children: summaryCards,
-                )
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Books"),
+        backgroundColor: colors.grayBlue,
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search, color: Colors.white),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate()
               );
-            },
-            childCount: 1,
-          ),
+            },          
+          )
+        ],
+        
         ),
-      ],
+
+      body: new GridView.count(
+        childAspectRatio: .8,
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisCount: 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
+        children: summaryCards,
+      )
     );
   }
 }
