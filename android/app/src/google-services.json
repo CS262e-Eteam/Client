@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "341243684624",
+    "firebase_url": "https://calvin-marketplace-2019.firebaseio.com",
+    "project_id": "calvin-marketplace-2019",
+    "storage_bucket": "calvin-marketplace-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341243684624:android:5eda3551460124d940a795",
+        "android_client_info": {
+          "package_name": "cs262.lab03"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341243684624-nmdkd7s5d23pbgnpq7gnj46jf2el2h5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cs262.lab03",
+            "certificate_hash": "b8ec489abb840a49418c3a822af8ff0d915535ea"
+          }
+        },
+        {
+          "client_id": "341243684624-saj06m84auenjed734s6h2n0f6ok20ca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMoP0gbHGkoRQkM3kn2jsGFsrGtl6T26A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341243684624-saj06m84auenjed734s6h2n0f6ok20ca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
