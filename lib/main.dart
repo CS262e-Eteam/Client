@@ -1,3 +1,7 @@
+/*
+Main - provides a framework for the app that includes the app bar containing the menu
+ */
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/edit_item.dart';

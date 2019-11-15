@@ -1,3 +1,7 @@
+/*
+Home Page - shows header and list of most recent items
+ */
+
 import 'package:flutter/material.dart';
 import 'package:lab03/components/summary_card.dart';
 import 'package:lab03/shared/globals.dart' as globals;
@@ -19,7 +23,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     List<Widget> summaryCards = [];
-    globals.testItems.forEach((item) {
+    globals.testItems.reversed.forEach((item) {
       summaryCards.add(SummaryCard(item: item));
     });
 

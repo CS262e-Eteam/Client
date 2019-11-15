@@ -1,3 +1,7 @@
+/*
+Defines class User
+ */
+
 import 'package:flutter/foundation.dart';
 
 class User {

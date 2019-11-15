@@ -1,3 +1,8 @@
+/*
+Implements a summary card for an item - used in lists
+@params: item, Item: the item to show summarized details about
+ */
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

@@ -1,3 +1,8 @@
+/*
+Item Detail Page - shows more extensive details about an item and allows a user to contact user
+@params: item, Item: the item whose details to display
+ */
+
 import 'package:flutter/material.dart';
 import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/components/property_field.dart';
@@ -130,7 +135,7 @@ class ItemDetailState extends State<ItemDetail> {
               ],
             )
           ),
-          widget.item.description != '' ?
+          widget.item.description != null && widget.item.description != '' ?
           Padding(
             padding: EdgeInsets.only(bottom: 10),
           ) : Container(),
@@ -144,17 +149,17 @@ class ItemDetailState extends State<ItemDetail> {
               color: colors.lightBerry,
             )
           ),
-          widget.item.condition != null ?
+          widget.item.condition != null && widget.item.condition != '' ?
             PropertyField(title: "CONDITION", value: widget.item.condition) : Container(),
-          widget.item.author != null ?
+          widget.item.author != null && widget.item.author != '' ?
             PropertyField(title: "AUTHOR", value: widget.item.author) : Container(),
-          widget.item.course != null ?
+          widget.item.course != null && widget.item.course != '' ?
             PropertyField(title: "CLASS", value: widget.item.course) : Container(),
-          widget.item.iSBN != null ?
+          widget.item.iSBN != null && widget.item.iSBN != ''?
             PropertyField(title: "ISBN", value: widget.item.iSBN) : Container(),
-          widget.item.brand != null ?
+          widget.item.brand != null && widget.item.brand != '' ?
             PropertyField(title: "BRAND", value: widget.item.brand) : Container(),
-          widget.item.size != null ?
+          widget.item.size != null && widget.item.size != '' ?
             PropertyField(title: "SIZE", value: widget.item.size) : Container(),
         ],
       ),

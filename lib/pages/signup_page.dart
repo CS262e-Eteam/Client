@@ -1,3 +1,7 @@
+/*
+Sign Up Page - allows a user to create an account
+ */
+
 import 'package:flutter/material.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
@@ -10,24 +14,30 @@ class SignUpPage extends StatefulWidget{
 }
 
 class SignUpPageState extends State<SignUpPage> {
-	final emailLogin = TextEditingController();
+	final usernameCreate = TextEditingController();
 	final passwordLogin = TextEditingController();
 	final emailCreate = TextEditingController();
 	final emailConfirm = TextEditingController();
 	final passwordCreate = TextEditingController();
 	final passwordConfirm = TextEditingController();
+	FocusNode usernameCreateNode = new FocusNode();
+	FocusNode emailCreateNode = new FocusNode();
+	FocusNode passwordCreateNode = new FocusNode();
+	FocusNode passwordConfirmNode = new FocusNode();
+
+
 
 	@override
 	Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
-			title: Text("Login"),
+			title: Text("Sign Up"),
 			backgroundColor: colors.grayBlue,
 		),
 		body: ListView(
 			padding: EdgeInsets.all(20),
 			children: <Widget>[
 				Text(
-					"Login",
+					"Get started with a free account",
 					style: TextStyle(
 						fontSize: 24,
 						fontWeight: FontWeight.bold,
@@ -38,76 +48,109 @@ class SignUpPageState extends State<SignUpPage> {
 				),
 				Padding(
 					padding: EdgeInsets.symmetric(horizontal: 10),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: <Widget>[
-							Text(
-								"Email"
+					child: TextFormField(
+						controller: usernameCreate,
+						focusNode: usernameCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Username";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Username",
+							labelStyle: TextStyle(
+								color: usernameCreateNode.hasFocus ? colors.lightBerry : Colors.black
 							),
-							TextField(
-								controller: emailLogin,
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
 							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Password"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-						],
-					)
+						),
+					),
 				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: emailCreate,
+						focusNode: emailCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter an Email";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Email",
+							labelStyle: TextStyle(
+								color: emailCreateNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: passwordCreate,
+						focusNode: passwordCreateNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Password";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Create Password",
+							labelStyle: TextStyle(
+								color: passwordCreateNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+				Padding(
+					padding: EdgeInsets.symmetric(horizontal: 10),
+					child: TextFormField(
+						controller: passwordConfirm,
+						focusNode: passwordConfirmNode,
+						validator: (value) {
+							if (value.isEmpty) return "Please enter a Password";
+							return null;
+						},
+						keyboardType: TextInputType.text,
+						cursorColor: colors.lightBerry,
+						decoration: InputDecoration(
+							labelText: "Confirm Password",
+							labelStyle: TextStyle(
+								color: passwordConfirmNode.hasFocus ? colors.lightBerry : Colors.black
+							),
+							focusedBorder: UnderlineInputBorder(
+								borderSide: BorderSide(color: colors.lightBerry),
+							),
+						),
+					),
+				),
+
 				Padding(
 					padding: EdgeInsets.only(bottom: 15)
 				),
 				Padding(
 					padding: EdgeInsets.all(15),
-					child: Container(
-						height: 1,
-						color: colors.lightBerry,
-					)
+//					child: Container(
+//						height: 1,
+//						color: colors.lightBerry,
+//					)
 				),
-				Padding(
-					padding: EdgeInsets.only(bottom: 15)
-				),
-				Text(
-					"Create Account",
-					style: TextStyle(
-						fontSize: 24,
-						fontWeight: FontWeight.bold,
-					),
-				),
-				Padding(
-					padding: EdgeInsets.only(bottom: 15)
-				),
-				Padding(
-					padding: EdgeInsets.symmetric(horizontal: 10),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: <Widget>[
-							Text(
-								"Email"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-							Padding(
-								padding: EdgeInsets.only(bottom: 15)
-							),
-							Text(
-								"Password"
-							),
-							TextField(
-								controller: emailLogin,
-							),
-						],
-					)
-				),
-				const SizedBox(height: 30),
+//				Padding(
+//					padding: EdgeInsets.only(bottom: 15)
+//				),
+//				const SizedBox(height: 30),
 				RaisedButton(
-					child:Text("Log In"),
+					child:Text("Sign Up"),
 					color: colors.teal,
 					onPressed: (){
 					}

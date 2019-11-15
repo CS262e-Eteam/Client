@@ -1,3 +1,9 @@
+/*
+Implements a favorite heart that can be selected/deselected and the fill changes based on that
+@params: itemId, int: the itemId which is used to check what display
+                      (favorited or not) to initialize the heart to
+ */
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
