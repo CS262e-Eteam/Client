@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
       ),
     ];
     
-    if (globals.isLoggedIn) {
+//    if (globals.isLoggedIn) {
       tabs.add(
         ListTile(
           leading: Icon(FontAwesomeIcons.userCircle),
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
           },
         ),
       );
-    } else {
+//    } else {
       tabs.add(
         ListTile(
           leading: Icon(FontAwesomeIcons.userCircle),
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
           },
         ),
       );
-    }
+//    }
 
     return tabs;
   }
