@@ -7,6 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
+import 'package:lab03/pages/filter_book.dart';
+import 'package:lab03/pages/filter_clothing.dart';
 
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
