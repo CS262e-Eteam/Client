@@ -119,11 +119,7 @@ class ItemFormState extends State<ItemForm> {
       Image.file(
         imgUrl,
         height: 200,
-      ) :
-      Image.asset(
-        'lib/images/test-img.JPG',
-        height: 200,
-      ),
+      ) : Container(),
       Padding(
         padding: EdgeInsets.only(bottom: 15),
       ),
@@ -139,7 +135,7 @@ class ItemFormState extends State<ItemForm> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
               child: Text(
-                "CHANGE IMAGE",
+                imgUrl != null ? "CHANGE IMAGE" : "ADD IMAGE",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
