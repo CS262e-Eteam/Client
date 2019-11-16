@@ -2,6 +2,8 @@
 Edit Item Page (can also be used to add an item)
  */
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -48,14 +50,24 @@ class ItemFormState extends State<ItemForm> {
   List<String> genders = <String>['None', 'Mens', 'Womens', 'Unisex'];
   String gender = 'None';
 
+  File imgUrl;
+
+  void setImage(var image) async {
+    if (image != null) {
+      setState(() {
+        imgUrl = image;
+      });
+    }
+  }
+
   void getCameraImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera, maxHeight: 360, maxWidth: 360);
-//    setImage(image);
+    setImage(image);
   }
 
   void getPhotoGalleryImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery, maxHeight: 360, maxWidth: 360);
-//    setImage(image);
+    setImage(image);
   }
 
   Future editImage() async {
@@ -103,38 +115,11 @@ class ItemFormState extends State<ItemForm> {
 
   List<Widget> optionalFields() {
     List<Widget> optionalFields = [
-//      Row(
-//        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//        children: <Widget>[
-//          Image.asset(
-//            'lib/images/test-img.JPG',
-//            height: 200,
-//          ),
-//          GestureDetector(
-//            onTap: () {
-//              editImage();
-//            },
-//            child: Container(
-//                decoration: BoxDecoration(
-//                  color: colors.lightBerry,
-//                  borderRadius: BorderRadius.all(Radius.circular(10)),
-//                ),
-//                child: Padding(
-//                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-//                  child: Text(
-//                    "CHANGE IMAGE",
-//                    style: TextStyle(
-//                        color: Colors.white,
-//                        fontWeight: FontWeight.bold,
-//                        fontSize: 16
-//                    ),
-//                    textAlign: TextAlign.center,
-//                  ),
-//                )
-//            ),
-//          ),
-//        ],
-//      ),
+      imgUrl != null ?
+      Image.file(
+        imgUrl,
+        height: 200,
+      ) :
       Image.asset(
         'lib/images/test-img.JPG',
         height: 200,
