@@ -24,79 +24,110 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+
+  List<Widget> menuTabs(BuildContext context) {
+    List<Widget> tabs = [
+      DrawerHeader(
+          decoration: BoxDecoration(
+            color: colors.grayBlue,
+          ),
+          child: Stack(children: <Widget>[
+            Align(alignment: Alignment.bottomCenter,
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 50.0,
+                )
+            ),
+            Text(globals.appName,
+                style: TextStyle(fontSize: 30) ),
+          ],)
+      ),
+      ListTile(
+        leading: Icon(Icons.bookmark_border),
+        title: Text('All Items'),
+        onTap: (){//fucntion we need
+        },
+      ),
+      ListTile(
+        leading: Icon(FontAwesomeIcons.bookOpen),
+        title: Text('Books'),
+        onTap: (){//fucntion we need
+        },
+      ),
+      ListTile(
+        leading: Icon(FontAwesomeIcons.tshirt),
+        title: Text('Clothing'),
+        onTap: (){//fucntion we need
+        },
+      ),
+      ListTile(
+        leading: Icon(FontAwesomeIcons.heart),
+        title: Text('Favorited Items'),
+        onTap: (){//fucntion we need
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.add),
+        title: Text('Add Item'),
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new ItemForm()),
+          );
+        },
+      ),
+      ListTile(
+        leading: Icon(FontAwesomeIcons.shirtsinbulk),
+        title: Text('My Items'),
+        onTap: (){//fucntion we need
+        },
+      ),
+    ];
+    
+//    if (globals.isLoggedIn) {
+      tabs.add(
+        ListTile(
+          leading: Icon(FontAwesomeIcons.userCircle),
+          title: Text('Login'),
+          onTap: () {
+            Navigator.push(
+              context,
+              new MaterialPageRoute(builder: (context) => new LoginPage()),
+            );
+          },
+        ),
+      );
+//    } else {
+      tabs.add(
+        ListTile(
+          leading: Icon(FontAwesomeIcons.userCircle),
+          title: Text('My Account'),
+          onTap: (){//fucntion we need
+          },
+        ),
+      );
+
+      tabs.add(
+        ListTile(
+          leading: Icon(FontAwesomeIcons.doorOpen),
+          title: Text('Logout'),
+          onTap: (){//fucntion we need
+            globals.isLoggedIn = false;
+          },
+        ),
+      );
+//    }
+
+    return tabs;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-                decoration: BoxDecoration(
-                  color: colors.grayBlue,
-                ),
-                child: Stack(children: <Widget>[
-                  Align(alignment: Alignment.bottomCenter,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50.0,
-                      )
-                  ),
-                  Text(globals.appName,
-                      style: TextStyle(fontSize: 30) ),
-                ],)
-            ),
-
-
-            ListTile(
-              leading: Icon(Icons.bookmark),
-              title: Text('All Items'),
-              onTap: (){
-                Navigator.pop(context);//fucntion we need
-              },
-            ),
-            ListTile(
-              leading: Icon(FontAwesomeIcons.bookOpen),
-              title: Text('Books'),
-              onTap: (){
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(builder: (context) => new FilterBook()),
-                );
-                //fucntion we need
-              },
-            ),
-            ListTile(
-              leading: Icon(FontAwesomeIcons.shirtsinbulk),
-              title: Text('Clothing'),
-              onTap: (){
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(builder: (context) => new FilterClothing()),
-                );//fucntion we need
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.add),
-              title: Text('Add Item'),
-              onTap: (){
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(builder: (context) => new ItemForm()),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(FontAwesomeIcons.userCircle),
-              title: Text('Login'),
-              onTap: (){
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(builder: (context) => new LoginPage()),
-                );
-              },
-            ),
-          ],
+          children: menuTabs(context)
         ) ,
       ),
       body: HomePage(),
