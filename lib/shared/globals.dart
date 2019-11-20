@@ -9,6 +9,8 @@ import 'package:lab03/types/user.dart';
 
 const String appName = "Calvin Marketplace";
 
+bool isLoggedIn = false;
+
 User testUser = User(
     id: 1,
     userName: 'testUser',
