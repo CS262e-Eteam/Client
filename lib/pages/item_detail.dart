@@ -74,12 +74,15 @@ class ItemDetailState extends State<ItemDetail> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                  widget.item.name,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20
+              Container(
+                width: MediaQuery.of(context).size.width - 100,
+                child: Text(
+                widget.item.name,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
                   )
+                ),
               ),
               FavoriteHeart(itemId: widget.item.id)
             ],
