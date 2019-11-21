@@ -9,17 +9,27 @@ import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
 import 'package:lab03/pages/filter_book.dart';
 import 'package:lab03/pages/filter_clothing.dart';
-
+// import 'package:lab03/types/item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart'; 
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 
 void main() => runApp(MyApp());
-
+ 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        home: new HomeScreen());
+     return MultiProvider(
+      providers: [
+        // Make user stream available
+        StreamProvider<FirebaseUser>.value(stream: FirebaseAuth.instance.onAuthStateChanged),
+      ],
+      // All data will be available in this child and descendents
+      child: MaterialApp(
+        home: new HomeScreen())
+    );
   }
 }
 

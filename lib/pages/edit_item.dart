@@ -431,8 +431,8 @@ class ItemFormState extends State<ItemForm> {
                         onTap: () {
                           globals.testItems.add(
                               Item(
-                                  id: 11,
-                                  sellerId: 1,
+                                  id: "11",
+                                  sellerId: "1",
                                   price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
                                   description: itemDescription.text,
                                   isOBO: itemOBO,

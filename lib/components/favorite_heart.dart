@@ -13,7 +13,7 @@ import 'package:lab03/shared/globals.dart' as globals;
 class FavoriteHeart extends StatefulWidget {
   FavoriteHeart({Key key, this.itemId}) : super(key: key);
 
-  final int itemId;
+  final String itemId;
 
   @override
   FavoriteHeartState createState() => FavoriteHeartState();

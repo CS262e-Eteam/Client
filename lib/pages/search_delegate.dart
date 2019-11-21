@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lab03/components/summary_card.dart';
-import 'package:lab03/shared/globals.dart' as globals;
-import 'package:lab03/shared/colors.dart' as colors;
+// import 'package:lab03/components/summary_card.dart';
+// import 'package:lab03/shared/globals.dart' as globals;
+// import 'package:lab03/shared/colors.dart' as colors;
 
 class CustomSearchDelegate extends SearchDelegate<int> {
   final List<int> _data = List<int>.generate(100001, (int i) => i).reversed.toList();

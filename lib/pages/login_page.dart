@@ -3,7 +3,7 @@ Login Page - allows a user to log in or navigate to sign up page
  */
 
 import 'package:flutter/material.dart';
-import 'package:lab03/pages/signup_page.dart';
+// import 'package:lab03/pages/signup_page.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lab03/shared/colors.dart' as colors;

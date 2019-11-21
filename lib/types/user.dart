@@ -13,9 +13,9 @@ class User {
     @required this.postedItems,
   });
 
-  final int id;
+  final String id;
   final String userName;
   final String email;
-  final List<int> favoritedItems;
-  final List<int> postedItems;
+  final List<String> favoritedItems;
+  final List<String> postedItems;
 }

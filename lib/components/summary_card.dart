@@ -4,17 +4,14 @@ Implements a summary card for an item - used in lists
  */
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
-import 'package:lab03/pages/item_detail.dart';
-
 import 'package:lab03/types/item.dart';
-
 import 'package:lab03/shared/colors.dart' as colors;
-import 'package:lab03/shared/globals.dart' as globals;
+// import 'package:lab03/shared/globals.dart' as globals;
 
 class SummaryCard extends StatefulWidget {
   SummaryCard({Key key, this.item}) : super(key: key);
