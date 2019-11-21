@@ -4,30 +4,40 @@ import 'package:lab03/pages/search_delegate.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 
-class FilterBook extends StatefulWidget {
-  FilterBook({Key key, this.title}) : super(key: key);
+class FilterList extends StatefulWidget {
+  FilterList({Key key, this.filter}) : super(key: key);
 
-  final String title;
+  final String filter;
 
   @override
-  FilterBookState createState() => FilterBookState();
+  FilterListState createState() => FilterListState();
 }
 
-class FilterBookState extends State<FilterBook> {
+class FilterListState extends State<FilterList> {
+  String title = "";
 
   @override
   Widget build(BuildContext context) {
 
     List<Widget> summaryCards = [];
     globals.testItems.forEach((item) {
-      if (item.category == 'Textbook') {
+      if ((this.widget.filter == "Favorited" && globals.testUser.favoritedItems.contains(item.id)) ||
+          (this.widget.filter == "My Items" && globals.testUser.postedItems.contains(item.id)) ||
+          item.category == this.widget.filter ||
+          this.widget.filter == "All Items") {
         summaryCards.add(SummaryCard(item: item));
       }
     });
 
+    if (this.widget.filter == "Textbook") {
+      this.title = "Textbooks";
+    } else {
+      this.title = this.widget.filter;
+    }
+
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Books"),
+        title: new Text(this.title),
         backgroundColor: colors.grayBlue,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search, color: Colors.white),

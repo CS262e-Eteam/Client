@@ -7,8 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
-import 'package:lab03/pages/filter_book.dart';
-import 'package:lab03/pages/filter_clothing.dart';
+
+import 'package:lab03/pages/filter_list.dart';
 
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
@@ -45,25 +45,51 @@ class HomeScreen extends StatelessWidget {
       ListTile(
         leading: Icon(Icons.bookmark_border),
         title: Text('All Items'),
-        onTap: (){//fucntion we need
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new FilterList(filter: "All Items")),
+          );
         },
       ),
       ListTile(
         leading: Icon(FontAwesomeIcons.bookOpen),
         title: Text('Books'),
-        onTap: (){//fucntion we need
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new FilterList(filter: "Textbook")),
+          );
         },
       ),
       ListTile(
         leading: Icon(FontAwesomeIcons.tshirt),
         title: Text('Clothing'),
-        onTap: (){//fucntion we need
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new FilterList(filter: "Clothing")),
+          );
         },
       ),
       ListTile(
         leading: Icon(FontAwesomeIcons.heart),
         title: Text('Favorited Items'),
-        onTap: (){//fucntion we need
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new FilterList(filter: "Favorited")),
+          );
+        },
+      ),
+      ListTile(
+        leading: Icon(FontAwesomeIcons.shirtsinbulk),
+        title: Text('My Items'),
+        onTap: (){
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new FilterList(filter: "My Items")),
+          );
         },
       ),
       ListTile(
@@ -74,12 +100,6 @@ class HomeScreen extends StatelessWidget {
             context,
             new MaterialPageRoute(builder: (context) => new ItemForm()),
           );
-        },
-      ),
-      ListTile(
-        leading: Icon(FontAwesomeIcons.shirtsinbulk),
-        title: Text('My Items'),
-        onTap: (){//fucntion we need
         },
       ),
     ];
