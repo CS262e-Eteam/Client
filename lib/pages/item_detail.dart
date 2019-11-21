@@ -10,6 +10,9 @@ import 'package:lab03/components/property_field.dart';
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/types/item.dart';
 
+import 'dart:io';
+import 'dart:async';
+
 
 class ItemDetail extends StatefulWidget{
   ItemDetail({Key key, this.item}) : super(key: key);
