@@ -12,10 +12,6 @@ import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 class ItemForm extends StatefulWidget{
-  ItemForm({Key key, this.item}) : super(key: key);
-
-  final Item item;
-
   @override
   State<StatefulWidget> createState(){
     return ItemFormState();
@@ -55,8 +51,6 @@ class ItemFormState extends State<ItemForm> {
   String gender = 'None';
 
   File imgUrl;
-
-  bool isEdit = false;
 
   void setImage(var image) async {
     if (image != null) {
@@ -491,26 +485,8 @@ class ItemFormState extends State<ItemForm> {
   }
 
   @override
-  Widget build(BuildContext context) {
-
-    if (this.widget.item != null) {
-      isEdit = true;
-
-      itemCost.text = this.widget.item.price.toString();
-      itemDescription.text = this.widget.item.description;
-      itemOBO = this.widget.item.isOBO;
-      itemName.text = this.widget.item.name;
-      condition = this.widget.item.condition;
-      type = this.widget.item.category;
-      itemAuthor.text = this.widget.item.author;
-      itemClass.text = this.widget.item.course;
-      itemISBN.text = this.widget.item.iSBN;
-      itemSize.text = this.widget.item.size;
-      gender = this.widget.item.gender;
-      itemBrand.text = this.widget.item.brand;
-    }
-
-      return new Scaffold(
+  Widget build(BuildContext context) =>
+      new Scaffold(
           appBar: AppBar(
             title: Text("New Items"),
             backgroundColor: colors.grayBlue,
@@ -523,81 +499,7 @@ class ItemFormState extends State<ItemForm> {
               ),
               child: Padding(
                   padding: EdgeInsets.all(15),
-                  child: this.isEdit ?
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                          decoration: BoxDecoration(
-                            color: colors.lightGrayBlue,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-                            child: Text(
-                              "CANCEL",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(
-                            context,
-                          );
-                        },
-                        child: Container(
-                            decoration: BoxDecoration(
-                              color: colors.darkGreen,
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
-                              child: Text(
-                                "SAVE",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            )
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          globals.testItems.remove(this.widget.item);
-                          Navigator.pop(
-                            context,
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: colors.darkBerry,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-                            child: Text(
-                              "REMOVE",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        )
-                      )
-                    ],
-                  ) : Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
@@ -622,22 +524,23 @@ class ItemFormState extends State<ItemForm> {
                         onTap: () {
                           globals.testItems.add(
                               Item(
-                                id: 11,
-                                sellerId: 1,
-                                price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
-                                description: itemDescription.text,
-                                isOBO: itemOBO,
-                                name: itemName.text,
-                                condition: condition,
-                                category: itemType,
-                                author: itemAuthor.text,
-                                course: itemClass.text,
-                                iSBN: itemISBN.text,
-                                size: itemSize.text,
-                                gender: itemGender,
-                                brand: itemBrand.text,
+                                  id: 11,
+                                  sellerId: 1,
+                                  price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
+                                  description: itemDescription.text,
+                                  isOBO: itemOBO,
+                                  name: itemName.text,
+                                  condition: condition,
+                                  category: itemType,
+                                  author: itemAuthor.text,
+                                  course: itemClass.text,
+                                  iSBN: itemISBN.text,
+                                  size: itemSize.text,
+                                  gender: itemGender,
+                                  brand: itemBrand.text,
                               )
                           );
+
                           Navigator.pop(
                             context,
                           );
@@ -662,7 +565,7 @@ class ItemFormState extends State<ItemForm> {
                         ),
                       ),
                     ],
-                  ),
+                  )
               )
           ),
           body: ListView(
@@ -670,5 +573,4 @@ class ItemFormState extends State<ItemForm> {
             children: optionalFields(),
           )
       );
-  }
 }

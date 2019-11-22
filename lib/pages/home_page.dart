@@ -24,7 +24,7 @@ class HomePageState extends State<HomePage> {
 
     List<Widget> summaryCards = [];
     globals.testItems.reversed.forEach((item) {
-      summaryCards.add(SummaryCard(item: item, isSeller: false));
+      summaryCards.add(SummaryCard(item: item));
     });
 
     return CustomScrollView(
