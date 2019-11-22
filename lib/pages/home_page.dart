@@ -2,6 +2,7 @@
 Home Page - shows header and list of most recent items
  */
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 // import 'package:lab03/components/summary_card.dart';
 import 'package:lab03/database/database_service.dart';
@@ -79,18 +80,18 @@ class HomePageState extends State<HomePage> {
     //         childCount: 1,
     //       ),
     //     ),
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-          SizedBox(
-            child: Image.asset('assets/dog.png'),
-            width: 150,
-          ),
-        StreamProvider<List<Item>>.value(
-          stream: db.streamAllItems(),
-          child: ItemsList()
-        )
-      ],
-    );
+    
+        if (Firestore.instance.collection("items").snapshots()!= null){
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            StreamProvider<List<Item>>.value(
+              stream: db.streamAllItems(),
+              child: ItemsList()
+          )
+        ]);
+        }else {
+          return Text("Gathering Data ...");
+        }   
   }
 }
