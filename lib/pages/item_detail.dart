@@ -10,9 +10,6 @@ import 'package:lab03/components/property_field.dart';
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/types/item.dart';
 
-import 'dart:io';
-import 'dart:async';
-
 
 class ItemDetail extends StatefulWidget{
   ItemDetail({Key key, this.item}) : super(key: key);
@@ -31,7 +28,7 @@ class ItemDetailState extends State<ItemDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Item Details"),
-        backgroundColor: colors.grayBlue,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
@@ -74,15 +71,12 @@ class ItemDetailState extends State<ItemDetail> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width - 100,
-                child: Text(
-                widget.item.name,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
+              Text(
+                  widget.item.name,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
                   )
-                ),
               ),
               FavoriteHeart(itemId: widget.item.id)
             ],
