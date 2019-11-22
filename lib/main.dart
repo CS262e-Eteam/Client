@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
       ),
       ListTile(
         leading: Icon(FontAwesomeIcons.bookOpen),
-        title: Text('Books'),
+        title: Text('Textbooks'),
         onTap: (){
           Navigator.push(
             context,
@@ -98,7 +98,7 @@ class HomeScreen extends StatelessWidget {
         onTap: (){
           Navigator.push(
             context,
-            new MaterialPageRoute(builder: (context) => new ItemForm()),
+            new MaterialPageRoute(builder: (context) => new ItemForm( item: null )),
           );
         },
       ),

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:lab03/components/favorite_heart.dart';
+import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
 import 'package:lab03/pages/item_detail.dart';
@@ -17,9 +18,10 @@ import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/shared/globals.dart' as globals;
 
 class SummaryCard extends StatefulWidget {
-  SummaryCard({Key key, this.item}) : super(key: key);
+  SummaryCard({Key key, this.item, this.isSeller}) : super(key: key);
 
   final Item item;
+  final bool isSeller;
 
   @override
   SummaryCardState createState() => SummaryCardState();
@@ -33,13 +35,24 @@ class SummaryCardState extends State<SummaryCard> {
 
     return GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  NoAnimationRoute(
+              if (!this.widget.isSeller) {
+                Navigator.push(
+                    context,
+                    NoAnimationRoute(
                       builder: (BuildContext context) =>
                           ItemDetail( item: widget.item ),
-                  )
-              );
+                    )
+                );
+              } else {
+                Navigator.push(
+                    context,
+                    NoAnimationRoute(
+                      builder: (BuildContext context) =>
+                          ItemForm( item: widget.item ),
+                    )
+                );
+              }
+
             },
             child: Container(
                 alignment: Alignment.center,
