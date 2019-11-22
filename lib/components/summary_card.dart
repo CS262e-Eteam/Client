@@ -68,62 +68,71 @@ class SummaryCardState extends State<SummaryCard> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Padding (
-                                  padding: EdgeInsets.only(bottom: 15),
-                                ),
-                                Text(
-                                  widget.item.name,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.only(bottom: 5)
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    widget.item.price != 0 || !widget.item.isOBO ?
-                                    Container(
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                            color: colors.lightGreen,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10)
-                                            )
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Padding (
+                                        padding: EdgeInsets.only(bottom: 15),
+                                      ),
+                                      Text(
+                                        widget.item.name,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+//                                        maxLines: 2,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2),
-                                          child: Text (
-                                            '\$' + widget.item.price.toString(),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                    ) : Container(),
-                                    widget.item.price != 0 || !widget.item.isOBO ?
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 10)
-                                    ) : Container(),
-                                    widget.item.isOBO ?
-                                    Container(
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                            color: colors.teal,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10)
-                                            )
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2),
-                                          child: Text (
-                                            'OBO',
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                    ) : Container()
-                                  ],
+                                      ),
+                                      Padding(
+                                          padding: EdgeInsets.only(bottom: 5)
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          widget.item.price != 0 || !widget.item.isOBO ?
+                                          Container(
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: colors.lightGreen,
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10)
+                                                  )
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(2),
+                                                child: Text (
+                                                  '\$' + widget.item.price.toString(),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )
+                                          ) : Container(),
+                                          widget.item.price != 0 || !widget.item.isOBO ?
+                                          Padding(
+                                              padding: EdgeInsets.only(right: 10)
+                                          ) : Container(),
+                                          widget.item.isOBO ?
+                                          Container(
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: colors.teal,
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10)
+                                                  )
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(2),
+                                                child: Text (
+                                                  'OBO',
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )
+                                          ) : Container()
+                                        ],
+                                      ),
+                                    ],
+                                  )
                                 ),
                                 Padding(
                                     padding: EdgeInsets.only(top: 15),

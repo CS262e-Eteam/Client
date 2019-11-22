@@ -2,7 +2,10 @@
 Edit Item Page (can also be used to add an item)
  */
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/shared/globals.dart' as globals;
@@ -47,11 +50,101 @@ class ItemFormState extends State<ItemForm> {
   List<String> genders = <String>['None', 'Mens', 'Womens', 'Unisex'];
   String gender = 'None';
 
+  File imgUrl;
+
+  void setImage(var image) async {
+    if (image != null) {
+      setState(() {
+        imgUrl = image;
+      });
+    }
+  }
+
+  void getCameraImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera, maxHeight: 360, maxWidth: 360);
+    setImage(image);
+  }
+
+  void getPhotoGalleryImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery, maxHeight: 360, maxWidth: 360);
+    setImage(image);
+  }
+
+  Future editImage() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Item Image"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget> [
+                  Text("Where do you want to select your image from?"),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget> [
+                        FlatButton(
+                          child: const Text("LIBRARY"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            getPhotoGalleryImage();
+                          },
+                        ),
+                        FlatButton(
+                          child: const Text("CAMERA"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            getCameraImage();
+                          },
+                        ),
+                      ]
+                  ),
+                  FlatButton(
+                    child: const Text("CANCEL"),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )
+                ],
+              )
+          );
+        }
+    );
+  }
+
   List<Widget> optionalFields() {
     List<Widget> optionalFields = [
-      Image.asset(
-        'lib/images/test-img.JPG',
+      imgUrl != null ?
+      Image.file(
+        imgUrl,
         height: 200,
+      ) : Container(),
+      Padding(
+        padding: EdgeInsets.only(bottom: 15),
+      ),
+      GestureDetector(
+        onTap: () {
+          editImage();
+        },
+        child: Container(
+            decoration: BoxDecoration(
+              color: colors.lightBerry,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              child: Text(
+                imgUrl != null ? "CHANGE IMAGE" : "ADD IMAGE",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16
+                ),
+                textAlign: TextAlign.center,
+              ),
+            )
+        ),
       ),
       Padding(
         padding: EdgeInsets.only(bottom: 15),

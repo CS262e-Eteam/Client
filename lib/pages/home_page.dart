@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:lab03/components/summary_card.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/pages/search_delegate.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -28,14 +29,17 @@ class HomePageState extends State<HomePage> {
 
     return CustomScrollView(
       slivers: <Widget>[
-        const SliverAppBar(
-
+         SliverAppBar(
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search, color: Colors.white),
-              // onTap: () {
-              // },
-            ),
+              icon: Icon(Icons.search),
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                      delegate: CustomSearchDelegate()
+        );
+      },
+    ),
           ],
           backgroundColor: colors.grayBlue,
           pinned: true,
