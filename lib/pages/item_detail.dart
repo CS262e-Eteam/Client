@@ -8,10 +8,13 @@ import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/components/property_field.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 import 'dart:io';
 import 'dart:async';
+
+import 'package:lab03/types/user.dart';
 
 
 class ItemDetail extends StatefulWidget{
@@ -26,6 +29,38 @@ class ItemDetail extends StatefulWidget{
 }
 
 class ItemDetailState extends State<ItemDetail> {
+
+  Future contactSeller() async {
+    User seller = globals.testUser;
+
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Contact Seller"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget> [
+                  Text("The seller of this item, " + seller.userName + ", can be reached at: "),
+                  Text(seller.email),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget> [
+                        FlatButton(
+                          child: const Text("OKAY"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ]
+                  ),
+                ],
+              )
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +76,11 @@ class ItemDetailState extends State<ItemDetail> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Container(
+          child: GestureDetector(
+            onTap: () {
+              contactSeller();
+            },
+            child: Container(
               decoration: BoxDecoration(
                 color: colors.darkGreen,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -58,6 +97,7 @@ class ItemDetailState extends State<ItemDetail> {
                   textAlign: TextAlign.center,
                 ),
               )
+            )
           ),
         )
       ),
