@@ -5,6 +5,7 @@ import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/types/item.dart';
 import 'package:lab03/main.dart';
+import 'package:lab03/pages/firebase.dart';
 
 
 import 'dart:async';
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 3),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => new HomeScreen())));
+            builder: (BuildContext context) => new MyHome())));
   }
 
   @override

@@ -7,6 +7,7 @@ import 'package:lab03/components/summary_card.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:material_search/material_search.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class HomePage extends StatefulWidget {

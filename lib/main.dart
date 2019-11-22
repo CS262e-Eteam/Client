@@ -10,7 +10,7 @@ import 'package:lab03/pages/login_page.dart';
 import 'package:lab03/pages/filter_book.dart';
 import 'package:lab03/pages/filter_clothing.dart';
 import 'package:lab03/pages/Splashscreen.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 
