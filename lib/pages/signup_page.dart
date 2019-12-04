@@ -153,6 +153,8 @@ class SignUpPageState extends State<SignUpPage> {
 					child:Text("Sign Up"),
 					color: colors.teal,
 					onPressed: (){
+						Navigator.pop(context);
+						Navigator.pop(context);
 					}
 				)
 			],

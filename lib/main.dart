@@ -46,6 +46,7 @@ class HomeScreen extends StatelessWidget {
         leading: Icon(Icons.bookmark_border),
         title: Text('All Items'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new FilterList(filter: "All Items")),
@@ -54,8 +55,9 @@ class HomeScreen extends StatelessWidget {
       ),
       ListTile(
         leading: Icon(FontAwesomeIcons.bookOpen),
-        title: Text('Books'),
+        title: Text('Textbooks'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new FilterList(filter: "Textbook")),
@@ -66,6 +68,7 @@ class HomeScreen extends StatelessWidget {
         leading: Icon(FontAwesomeIcons.tshirt),
         title: Text('Clothing'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new FilterList(filter: "Clothing")),
@@ -76,6 +79,7 @@ class HomeScreen extends StatelessWidget {
         leading: Icon(FontAwesomeIcons.heart),
         title: Text('Favorited Items'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new FilterList(filter: "Favorited")),
@@ -86,6 +90,7 @@ class HomeScreen extends StatelessWidget {
         leading: Icon(FontAwesomeIcons.shirtsinbulk),
         title: Text('My Items'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new FilterList(filter: "My Items")),
@@ -96,6 +101,7 @@ class HomeScreen extends StatelessWidget {
         leading: Icon(Icons.add),
         title: Text('Add Item'),
         onTap: (){
+          Navigator.pop(context);
           Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => new ItemForm()),
@@ -110,6 +116,7 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(FontAwesomeIcons.userCircle),
           title: Text('Login'),
           onTap: () {
+            Navigator.pop(context);
             Navigator.push(
               context,
               new MaterialPageRoute(builder: (context) => new LoginPage()),
@@ -118,24 +125,24 @@ class HomeScreen extends StatelessWidget {
         ),
       );
 //    } else {
-      tabs.add(
-        ListTile(
-          leading: Icon(FontAwesomeIcons.userCircle),
-          title: Text('My Account'),
-          onTap: (){//fucntion we need
-          },
-        ),
-      );
-
-      tabs.add(
-        ListTile(
-          leading: Icon(FontAwesomeIcons.doorOpen),
-          title: Text('Logout'),
-          onTap: (){//fucntion we need
-            globals.isLoggedIn = false;
-          },
-        ),
-      );
+//      tabs.add(
+//        ListTile(
+//          leading: Icon(FontAwesomeIcons.userCircle),
+//          title: Text('My Account'),
+//          onTap: (){//fucntion we need
+//          },
+//        ),
+//      );
+//
+//      tabs.add(
+//        ListTile(
+//          leading: Icon(FontAwesomeIcons.doorOpen),
+//          title: Text('Logout'),
+//          onTap: (){//fucntion we need
+//            globals.isLoggedIn = false;
+//          },
+//        ),
+//      );
 //    }
 
     return tabs;
