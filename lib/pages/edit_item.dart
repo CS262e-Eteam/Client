@@ -12,6 +12,10 @@ import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 class ItemForm extends StatefulWidget{
+  ItemForm({Key key, this.item}) : super(key: key);
+
+  final Item item;
+
   @override
   State<StatefulWidget> createState(){
     return ItemFormState();
@@ -27,9 +31,6 @@ class ItemFormState extends State<ItemForm> {
   final itemSize = TextEditingController();
   final itemBrand = TextEditingController();
   final itemAuthor = TextEditingController();
-  String itemCondition = '';
-  String itemType = '';
-  String itemGender = '';
   bool itemOBO = false;
 
   FocusNode itemNameNode = new FocusNode();
@@ -42,15 +43,17 @@ class ItemFormState extends State<ItemForm> {
   FocusNode itemAuthorNode = new FocusNode();
 
   List<String> conditions = <String>['New', 'Pretty Good', 'Fair', 'Poor'];
-  String condition = 'New';
+  String itemCondition = 'New';
 
-  List<String> types = <String>['Textbook', 'Clothing', 'Furniture', 'Technology', 'Other'];
-  String type = 'Textbook';
+  List<String> itemTypes = <String>['Textbook', 'Clothing', 'Furniture', 'Technology', 'Other'];
+  String itemType = 'Textbook';
 
   List<String> genders = <String>['None', 'Mens', 'Womens', 'Unisex'];
-  String gender = 'None';
+  String itemGender = 'None';
 
   File imgUrl;
+
+  bool isEdit = false;
 
   void setImage(var image) async {
     if (image != null) {
@@ -106,6 +109,64 @@ class ItemFormState extends State<ItemForm> {
                       Navigator.pop(context);
                     },
                   )
+                ],
+              )
+          );
+        }
+    );
+  }
+
+  void saveItem() {
+    Item sItem = globals.testItems.firstWhere((item) => item.id == this.widget.item.id && item.sellerId == this.widget.item.sellerId);
+
+    if (sItem != null) {
+      sItem.price = itemCost.text != '' ? int.parse(itemCost.text) : 0;
+      sItem.description = itemDescription.text;
+      sItem.isOBO = itemOBO;
+      sItem.name = itemName.text;
+      sItem.condition = itemCondition;
+      sItem.category = itemType;
+      sItem.author = itemAuthor.text;
+      sItem.course = itemClass.text;
+      sItem.iSBN = itemISBN.text;
+      sItem.size = itemSize.text;
+      sItem.gender = itemGender;
+      sItem.brand = itemBrand.text;
+
+      Navigator.pop(context);
+    }
+  }
+
+  Future removeItem() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Remove Item"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget> [
+                  Text("Are you sure you want to remove this item?"),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget> [
+                        FlatButton(
+                          child: const Text("CANCEL"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        FlatButton(
+                          child: const Text("OKAY"),
+                          onPressed: () {
+                            globals.testItems.remove(this.widget.item);
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ]
+                  ),
                 ],
               )
           );
@@ -245,15 +306,14 @@ class ItemFormState extends State<ItemForm> {
                         color: colors.lightBerry
                     ),
                   ),
-                  isEmpty: condition == '',
+                  isEmpty: itemCondition == '',
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                      value: condition,
+                      value: itemCondition,
                       isDense: true,
                       onChanged: (String newValue) {
                         setState(() {
                           itemCondition = newValue;
-                          condition = newValue;
                           state.didChange(newValue);
                         });
                       },
@@ -282,19 +342,18 @@ class ItemFormState extends State<ItemForm> {
                         color: colors.lightBerry
                     ),
                   ),
-                  isEmpty: type == '',
+                  isEmpty: itemType == '',
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                      value: type,
+                      value: itemType,
                       isDense: true,
                       onChanged: (String newValue) {
                         setState(() {
                           itemType = newValue;
-                          type = newValue;
                           state.didChange(newValue);
                         });
                       },
-                      items: types.map((String value) {
+                      items: itemTypes.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -311,7 +370,7 @@ class ItemFormState extends State<ItemForm> {
 
     ];
 
-    if (type == 'Textbook') {
+    if (itemType == 'Textbook') {
       optionalFields.addAll(
         [
           Padding(
@@ -383,7 +442,7 @@ class ItemFormState extends State<ItemForm> {
         ]
       );
 
-    } else if (type == 'Clothing') {
+    } else if (itemType == 'Clothing') {
       optionalFields.addAll(
           [
             Padding(
@@ -431,15 +490,14 @@ class ItemFormState extends State<ItemForm> {
                               color: colors.lightBerry
                           ),
                         ),
-                        isEmpty: gender == '',
+                        isEmpty: itemGender == '',
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
-                            value: gender,
+                            value: itemGender,
                             isDense: true,
                             onChanged: (String newValue) {
                               setState(() {
                                 itemGender = newValue;
-                                gender = newValue;
                                 state.didChange(newValue);
                               });
                             },
@@ -484,9 +542,31 @@ class ItemFormState extends State<ItemForm> {
     return optionalFields;
   }
 
+  @override void initState() {
+    super.initState();
+
+    if (this.widget.item != null) {
+      isEdit = true;
+
+      itemCost.text = this.widget.item.price.toString();
+      itemDescription.text = this.widget.item.description;
+      itemOBO = this.widget.item.isOBO;
+      itemName.text = this.widget.item.name;
+      itemCondition = this.widget.item.condition;
+      itemType = this.widget.item.category;
+      itemAuthor.text = this.widget.item.author;
+      itemClass.text = this.widget.item.course;
+      itemISBN.text = this.widget.item.iSBN;
+      itemSize.text = this.widget.item.size;
+      itemGender = this.widget.item.gender;
+      itemBrand.text = this.widget.item.brand;
+    }
+  }
+
   @override
-  Widget build(BuildContext context) =>
-      new Scaffold(
+  Widget build(BuildContext context) {
+
+      return new Scaffold(
           appBar: AppBar(
             title: Text("New Items"),
             backgroundColor: colors.grayBlue,
@@ -499,7 +579,77 @@ class ItemFormState extends State<ItemForm> {
               ),
               child: Padding(
                   padding: EdgeInsets.all(15),
-                  child: Row(
+                  child: this.isEdit ?
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: colors.lightGrayBlue,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                            child: Text(
+                              "CANCEL",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: saveItem,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: colors.darkGreen,
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+                              child: Text(
+                                "SAVE",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: removeItem,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: colors.darkBerry,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                            child: Text(
+                              "REMOVE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        )
+                      )
+                    ],
+                  ) : Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
@@ -524,23 +674,22 @@ class ItemFormState extends State<ItemForm> {
                         onTap: () {
                           globals.testItems.add(
                               Item(
-                                  id: 11,
-                                  sellerId: 1,
-                                  price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
-                                  description: itemDescription.text,
-                                  isOBO: itemOBO,
-                                  name: itemName.text,
-                                  condition: condition,
-                                  category: itemType,
-                                  author: itemAuthor.text,
-                                  course: itemClass.text,
-                                  iSBN: itemISBN.text,
-                                  size: itemSize.text,
-                                  gender: itemGender,
-                                  brand: itemBrand.text,
+                                id: 11,
+                                sellerId: 1,
+                                price: itemCost.text != '' ? int.parse(itemCost.text) : 0,
+                                description: itemDescription.text,
+                                isOBO: itemOBO,
+                                name: itemName.text,
+                                condition: itemCondition,
+                                category: itemType,
+                                author: itemAuthor.text,
+                                course: itemClass.text,
+                                iSBN: itemISBN.text,
+                                size: itemSize.text,
+                                gender: itemGender,
+                                brand: itemBrand.text,
                               )
                           );
-
                           Navigator.pop(
                             context,
                           );
@@ -565,7 +714,7 @@ class ItemFormState extends State<ItemForm> {
                         ),
                       ),
                     ],
-                  )
+                  ),
               )
           ),
           body: ListView(
@@ -573,4 +722,5 @@ class ItemFormState extends State<ItemForm> {
             children: optionalFields(),
           )
       );
+  }
 }

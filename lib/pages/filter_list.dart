@@ -25,7 +25,7 @@ class FilterListState extends State<FilterList> {
           (this.widget.filter == "My Items" && globals.testUser.postedItems.contains(item.id)) ||
           item.category == this.widget.filter ||
           this.widget.filter == "All Items") {
-        summaryCards.add(SummaryCard(item: item));
+        summaryCards.add(SummaryCard(item: item, isSeller: this.widget.filter == "My Items"));
       }
     });
 

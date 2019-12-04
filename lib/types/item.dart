@@ -25,19 +25,19 @@ class Item {
 
   final int id;
   final int sellerId;
-  final int price;
-  final bool isOBO;
-  final String name;
-  final String description;
-  final String imageURL;
-  final String condition;
-  final String category;
+  int price;
+  bool isOBO;
+  String name;
+  String description;
+  String imageURL;
+  String condition;
+  String category;
 
-  final String iSBN;
-  final String author;
-  final String course;
+  String iSBN;
+  String author;
+  String course;
 
-  final String size;
-  final String gender;
-  final String brand;
+  String size;
+  String gender;
+  String brand;
 }
