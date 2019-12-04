@@ -583,7 +583,11 @@ class ItemFormState extends State<ItemForm> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Container(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
                           decoration: BoxDecoration(
                             color: colors.lightGrayBlue,
                             borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -600,6 +604,7 @@ class ItemFormState extends State<ItemForm> {
                               textAlign: TextAlign.center,
                             ),
                           )
+                        ),
                       ),
                       GestureDetector(
                         onTap: saveItem,
