@@ -141,10 +141,10 @@ class ItemDetailState extends State<ItemDetail> {
           widget.item.description != null && widget.item.description != '' ?
           Padding(
             padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              widget.item.description,
+            ),
           ) : Container(),
-          Text(
-            widget.item.description,
-          ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Container(

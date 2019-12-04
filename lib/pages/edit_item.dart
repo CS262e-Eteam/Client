@@ -119,6 +119,43 @@ class ItemFormState extends State<ItemForm> {
     );
   }
 
+  Future removeItem() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Remove Item"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget> [
+                  Text("Are you sure you want to remove this item?"),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget> [
+                        FlatButton(
+                          child: const Text("CANCEL"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        FlatButton(
+                          child: const Text("OKAY"),
+                          onPressed: () {
+                            globals.testItems.remove(this.widget.item);
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ]
+                  ),
+                ],
+              )
+          );
+        }
+    );
+  }
+
   List<Widget> optionalFields() {
     List<Widget> optionalFields = [
       imgUrl != null ?
@@ -571,12 +608,7 @@ class ItemFormState extends State<ItemForm> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          globals.testItems.remove(this.widget.item);
-                          Navigator.pop(
-                            context,
-                          );
-                        },
+                        onTap: removeItem,
                         child: Container(
                           decoration: BoxDecoration(
                             color: colors.darkBerry,
