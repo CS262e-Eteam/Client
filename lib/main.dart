@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
           Navigator.pop(context);
           Navigator.push(
             context,
-            new MaterialPageRoute(builder: (context) => new ItemForm()),
+            new MaterialPageRoute(builder: (context) => new ItemForm( item: null )),
           );
         },
       ),

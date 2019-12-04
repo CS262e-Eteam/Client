@@ -16,11 +16,11 @@ User testUser = User(
     userName: 'testUser',
     email: 'test@test.com',
     favoritedItems: [1, 3, 6],
-    postedItems: [1, 2, 3, 7, 8, 9]
+    postedItems: [1, 2, 7, 8, 9]
   );
 
 List<Item> testItems = [
-    Item(
+  Item(
       id: 1,
       sellerId: 1,
       price: 25,
@@ -122,13 +122,11 @@ List<Item> testItems = [
     Item(
       id: 7,
       sellerId: 1,
-      price: 5,
+      price: 20,
       isOBO: false,
-      name: 'T Shirt',
-      description: '',
-      imageURL: '',
+      name: 'Adidas Tennis Shoes',
+      condition: 'Pretty Good',
       category: 'Clothing',
-      condition: 'Bad',
       size: 'Medium',
       gender: 'Mens',
       brand: 'American Eagle'
