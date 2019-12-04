@@ -31,9 +31,6 @@ class ItemFormState extends State<ItemForm> {
   final itemSize = TextEditingController();
   final itemBrand = TextEditingController();
   final itemAuthor = TextEditingController();
-  String itemCondition = '';
-  String itemType = '';
-  String itemGender = '';
   bool itemOBO = false;
 
   FocusNode itemNameNode = new FocusNode();
@@ -46,13 +43,13 @@ class ItemFormState extends State<ItemForm> {
   FocusNode itemAuthorNode = new FocusNode();
 
   List<String> conditions = <String>['New', 'Pretty Good', 'Fair', 'Poor'];
-  String condition = 'New';
+  String itemCondition = 'New';
 
-  List<String> types = <String>['Textbook', 'Clothing', 'Furniture', 'Technology', 'Other'];
-  String type = 'Textbook';
+  List<String> itemTypes = <String>['Textbook', 'Clothing', 'Furniture', 'Technology', 'Other'];
+  String itemType = 'Textbook';
 
   List<String> genders = <String>['None', 'Mens', 'Womens', 'Unisex'];
-  String gender = 'None';
+  String itemGender = 'None';
 
   File imgUrl;
 
@@ -117,6 +114,27 @@ class ItemFormState extends State<ItemForm> {
           );
         }
     );
+  }
+
+  void saveItem() {
+    Item sItem = globals.testItems.firstWhere((item) => item.id == this.widget.item.id && item.sellerId == this.widget.item.sellerId);
+
+    if (sItem != null) {
+      sItem.price = itemCost.text != '' ? int.parse(itemCost.text) : 0;
+      sItem.description = itemDescription.text;
+      sItem.isOBO = itemOBO;
+      sItem.name = itemName.text;
+      sItem.condition = itemCondition;
+      sItem.category = itemType;
+      sItem.author = itemAuthor.text;
+      sItem.course = itemClass.text;
+      sItem.iSBN = itemISBN.text;
+      sItem.size = itemSize.text;
+      sItem.gender = itemGender;
+      sItem.brand = itemBrand.text;
+
+      Navigator.pop(context);
+    }
   }
 
   Future removeItem() async {
@@ -288,15 +306,14 @@ class ItemFormState extends State<ItemForm> {
                         color: colors.lightBerry
                     ),
                   ),
-                  isEmpty: condition == '',
+                  isEmpty: itemCondition == '',
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                      value: condition,
+                      value: itemCondition,
                       isDense: true,
                       onChanged: (String newValue) {
                         setState(() {
                           itemCondition = newValue;
-                          condition = newValue;
                           state.didChange(newValue);
                         });
                       },
@@ -325,19 +342,18 @@ class ItemFormState extends State<ItemForm> {
                         color: colors.lightBerry
                     ),
                   ),
-                  isEmpty: type == '',
+                  isEmpty: itemType == '',
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                      value: type,
+                      value: itemType,
                       isDense: true,
                       onChanged: (String newValue) {
                         setState(() {
                           itemType = newValue;
-                          type = newValue;
                           state.didChange(newValue);
                         });
                       },
-                      items: types.map((String value) {
+                      items: itemTypes.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -354,7 +370,7 @@ class ItemFormState extends State<ItemForm> {
 
     ];
 
-    if (type == 'Textbook') {
+    if (itemType == 'Textbook') {
       optionalFields.addAll(
         [
           Padding(
@@ -426,7 +442,7 @@ class ItemFormState extends State<ItemForm> {
         ]
       );
 
-    } else if (type == 'Clothing') {
+    } else if (itemType == 'Clothing') {
       optionalFields.addAll(
           [
             Padding(
@@ -474,15 +490,14 @@ class ItemFormState extends State<ItemForm> {
                               color: colors.lightBerry
                           ),
                         ),
-                        isEmpty: gender == '',
+                        isEmpty: itemGender == '',
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
-                            value: gender,
+                            value: itemGender,
                             isDense: true,
                             onChanged: (String newValue) {
                               setState(() {
                                 itemGender = newValue;
-                                gender = newValue;
                                 state.didChange(newValue);
                               });
                             },
@@ -527,8 +542,8 @@ class ItemFormState extends State<ItemForm> {
     return optionalFields;
   }
 
-  @override
-  Widget build(BuildContext context) {
+  @override void initState() {
+    super.initState();
 
     if (this.widget.item != null) {
       isEdit = true;
@@ -537,15 +552,19 @@ class ItemFormState extends State<ItemForm> {
       itemDescription.text = this.widget.item.description;
       itemOBO = this.widget.item.isOBO;
       itemName.text = this.widget.item.name;
-      condition = this.widget.item.condition;
-      type = this.widget.item.category;
+      itemCondition = this.widget.item.condition;
+      itemType = this.widget.item.category;
       itemAuthor.text = this.widget.item.author;
       itemClass.text = this.widget.item.course;
       itemISBN.text = this.widget.item.iSBN;
       itemSize.text = this.widget.item.size;
-      gender = this.widget.item.gender;
+      itemGender = this.widget.item.gender;
       itemBrand.text = this.widget.item.brand;
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
 
       return new Scaffold(
           appBar: AppBar(
@@ -583,11 +602,7 @@ class ItemFormState extends State<ItemForm> {
                           )
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.pop(
-                            context,
-                          );
-                        },
+                        onTap: saveItem,
                         child: Container(
                             decoration: BoxDecoration(
                               color: colors.darkGreen,
@@ -660,7 +675,7 @@ class ItemFormState extends State<ItemForm> {
                                 description: itemDescription.text,
                                 isOBO: itemOBO,
                                 name: itemName.text,
-                                condition: condition,
+                                condition: itemCondition,
                                 category: itemType,
                                 author: itemAuthor.text,
                                 course: itemClass.text,
