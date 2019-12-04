@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:lab03/components/favorite_heart.dart';
-import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/item_detail.dart';
 import 'package:lab03/shared/no_animation_route.dart';
 import 'package:lab03/pages/item_detail.dart';
@@ -18,10 +17,9 @@ import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/shared/globals.dart' as globals;
 
 class SummaryCard extends StatefulWidget {
-  SummaryCard({Key key, this.item, this.isSeller}) : super(key: key);
+  SummaryCard({Key key, this.item}) : super(key: key);
 
   final Item item;
-  final bool isSeller;
 
   @override
   SummaryCardState createState() => SummaryCardState();
@@ -35,24 +33,13 @@ class SummaryCardState extends State<SummaryCard> {
 
     return GestureDetector(
             onTap: () {
-              if (!this.widget.isSeller) {
-                Navigator.push(
-                    context,
-                    NoAnimationRoute(
+              Navigator.push(
+                  context,
+                  NoAnimationRoute(
                       builder: (BuildContext context) =>
                           ItemDetail( item: widget.item ),
-                    )
-                );
-              } else {
-                Navigator.push(
-                    context,
-                    NoAnimationRoute(
-                      builder: (BuildContext context) =>
-                          ItemForm( item: widget.item ),
-                    )
-                );
-              }
-
+                  )
+              );
             },
             child: Container(
                 alignment: Alignment.center,
@@ -81,62 +68,71 @@ class SummaryCardState extends State<SummaryCard> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Padding (
-                                  padding: EdgeInsets.only(bottom: 15),
-                                ),
-                                Text(
-                                  widget.item.name,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.only(bottom: 5)
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    widget.item.price != 0 || !widget.item.isOBO ?
-                                    Container(
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                            color: colors.lightGreen,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10)
-                                            )
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Padding (
+                                        padding: EdgeInsets.only(bottom: 15),
+                                      ),
+                                      Text(
+                                        widget.item.name,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+//                                        maxLines: 2,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2),
-                                          child: Text (
-                                            '\$' + widget.item.price.toString(),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                    ) : Container(),
-                                    widget.item.price != 0 || !widget.item.isOBO ?
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 10)
-                                    ) : Container(),
-                                    widget.item.isOBO ?
-                                    Container(
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                            color: colors.teal,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10)
-                                            )
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2),
-                                          child: Text (
-                                            'OBO',
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                    ) : Container()
-                                  ],
+                                      ),
+                                      Padding(
+                                          padding: EdgeInsets.only(bottom: 5)
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          widget.item.price != 0 || !widget.item.isOBO ?
+                                          Container(
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: colors.lightGreen,
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10)
+                                                  )
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(2),
+                                                child: Text (
+                                                  '\$' + widget.item.price.toString(),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )
+                                          ) : Container(),
+                                          widget.item.price != 0 || !widget.item.isOBO ?
+                                          Padding(
+                                              padding: EdgeInsets.only(right: 10)
+                                          ) : Container(),
+                                          widget.item.isOBO ?
+                                          Container(
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: colors.teal,
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10)
+                                                  )
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(2),
+                                                child: Text (
+                                                  'OBO',
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )
+                                          ) : Container()
+                                        ],
+                                      ),
+                                    ],
+                                  )
                                 ),
                                 Padding(
                                     padding: EdgeInsets.only(top: 15),

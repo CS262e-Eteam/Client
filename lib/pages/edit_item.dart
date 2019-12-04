@@ -12,10 +12,6 @@ import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 class ItemForm extends StatefulWidget{
-  ItemForm({Key key, this.item}) : super(key: key);
-
-  final Item item;
-
   @override
   State<StatefulWidget> createState(){
     return ItemFormState();
@@ -52,8 +48,6 @@ class ItemFormState extends State<ItemForm> {
   String itemGender = 'None';
 
   File imgUrl;
-
-  bool isEdit = false;
 
   void setImage(var image) async {
     if (image != null) {
@@ -542,6 +536,7 @@ class ItemFormState extends State<ItemForm> {
     return optionalFields;
   }
 
+
   @override void initState() {
     super.initState();
 
@@ -690,6 +685,7 @@ class ItemFormState extends State<ItemForm> {
                                 brand: itemBrand.text,
                               )
                           );
+
                           Navigator.pop(
                             context,
                           );
@@ -714,7 +710,7 @@ class ItemFormState extends State<ItemForm> {
                         ),
                       ),
                     ],
-                  ),
+                  )
               )
           ),
           body: ListView(
@@ -722,5 +718,4 @@ class ItemFormState extends State<ItemForm> {
             children: optionalFields(),
           )
       );
-  }
 }
