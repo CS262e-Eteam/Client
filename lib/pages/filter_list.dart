@@ -20,12 +20,12 @@ class FilterListState extends State<FilterList> {
   Widget build(BuildContext context) {
 
     List<Widget> summaryCards = [];
-    globals.testItems.forEach((item) {
+    globals.testItems.reversed.forEach((item) {
       if ((this.widget.filter == "Favorited" && globals.testUser.favoritedItems.contains(item.id)) ||
-          (this.widget.filter == "My Items" && globals.testUser.postedItems.contains(item.id)) ||
+          (this.widget.filter == "My Items" && (globals.testUser.id == item.sellerId)) ||
           item.category == this.widget.filter ||
           this.widget.filter == "All Items") {
-        summaryCards.add(SummaryCard(item: item));
+        summaryCards.add(SummaryCard(item: item, isSeller: this.widget.filter == "My Items"));
       }
     });
 

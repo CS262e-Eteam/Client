@@ -14,11 +14,11 @@ User testUser = User(
     userName: 'testUser',
     email: 'test@test.com',
     favoritedItems: [1, 3, 6],
-    postedItems: [1, 2, 3, 7, 8, 9]
+    postedItems: [1, 2, 7, 8, 9]
   );
 
 List<Item> testItems = [
-    Item(
+  Item(
       id: 1,
       sellerId: 1,
       price: 25,
@@ -33,11 +33,25 @@ List<Item> testItems = [
       course: 'CS 342',
     ),
     Item(
+        id: 10,
+        sellerId: 1,
+        price: 5,
+        isOBO: false,
+        name: 'Black Adidas Shoes',
+        description: '',
+        imageURL: '',
+        category: 'Clothing',
+        condition: 'Very Good',
+        size: '7',
+        gender: 'Mens',
+        brand: 'Adidas'
+    ),
+    Item(
       id: 2,
       sellerId: 1,
       price: 25,
       isOBO: true,
-      name: 'Computer Networking',
+      name: 'Software Engineering',
       description: 'This is a useful textbook that you absolutely need',
       imageURL: '',
       category: 'Textbook',
@@ -51,7 +65,7 @@ List<Item> testItems = [
       sellerId: 1,
       price: 25,
       isOBO: false,
-      name: 'Software Engineering',
+      name: 'Artificial Intelligence',
       description: '',
       imageURL: '',
       category: 'Textbook',
@@ -65,7 +79,7 @@ List<Item> testItems = [
       sellerId: 2,
       price: 10,
       isOBO: false,
-      name: 'Software Engineering',
+      name: 'Old Testament Survey',
       description: '',
       imageURL: '',
       category: 'Textbook',
@@ -79,7 +93,7 @@ List<Item> testItems = [
       sellerId: 2,
       price: 0,
       isOBO: true,
-      name: 'Software Engineering',
+      name: 'New Testament Survey',
       description: 'This is an example of a longer textual piece for a description'
           'that is really interesting because I want to keep getting a lot bigger',
       imageURL: '',
@@ -94,7 +108,7 @@ List<Item> testItems = [
       sellerId: 3,
       price: 25,
       isOBO: false,
-      name: 'Computer Networking',
+      name: 'English Writing 101',
       description: 'This is a useful textbook that you absolutely need',
       imageURL: '',
       category: 'Textbook',
@@ -106,37 +120,21 @@ List<Item> testItems = [
     Item(
       id: 7,
       sellerId: 1,
-      price: 5,
+      price: 20,
       isOBO: false,
-      name: 'T Shirt',
-      description: '',
-      imageURL: '',
+      name: 'Adidas Tennis Shoes',
+      condition: 'Pretty Good',
       category: 'Clothing',
-      condition: 'Bad',
       size: 'Medium',
       gender: 'Mens',
       brand: 'American Eagle'
-    ),
-    Item(
-      id: 8,
-      sellerId: 1,
-      price: 5,
-      isOBO: false,
-      name: 'Black Adidas Shoes',
-      description: '',
-      imageURL: '',
-      category: 'Clothing',
-      condition: 'New',
-      size: '7',
-      gender: 'Mens',
-      brand: 'Adidas'
     ),
     Item(
         id: 9,
         sellerId: 1,
         price: 5,
         isOBO: false,
-        name: 'T Shirt',
+        name: 'Jeans',
         description: '',
         imageURL: '',
         category: 'Clothing',
@@ -144,19 +142,5 @@ List<Item> testItems = [
         size: 'Medium',
         gender: 'Mens',
         brand: 'American Eagle'
-    ),
-    Item(
-        id: 10,
-        sellerId: 1,
-        price: 5,
-        isOBO: false,
-        name: 'Black Adidas Shoes',
-        description: '',
-        imageURL: '',
-        category: 'Clothing',
-        condition: 'Very Good',
-        size: '7',
-        gender: 'Mens',
-        brand: 'Adidas'
     ),
   ];

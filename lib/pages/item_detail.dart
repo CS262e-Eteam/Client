@@ -8,6 +8,7 @@ import 'package:lab03/components/favorite_heart.dart';
 import 'package:lab03/components/property_field.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
+import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
 
@@ -23,6 +24,31 @@ class ItemDetail extends StatefulWidget{
 }
 
 class ItemDetailState extends State<ItemDetail> {
+  Future contactSeller() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Contact Seller"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget> [
+                  Text(globals.testUser.userName + " can be contacted at:"),
+                  Text(globals.testUser.email),
+                  FlatButton(
+                    child: const Text("OKAY"),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )
+                ],
+              )
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,24 +64,29 @@ class ItemDetailState extends State<ItemDetail> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Container(
-              decoration: BoxDecoration(
-                color: colors.darkGreen,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(
-                  "CONTACT SELLER",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                  ),
-                  textAlign: TextAlign.center,
+          child: GestureDetector(
+            onTap: () {
+              contactSeller();
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                  color: colors.darkGreen,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
-              )
-          ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Text(
+                    "CONTACT SELLER",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+            ),
+          )
         )
       ),
       body: ListView(
@@ -138,10 +169,10 @@ class ItemDetailState extends State<ItemDetail> {
           widget.item.description != null && widget.item.description != '' ?
           Padding(
             padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              widget.item.description,
+            ),
           ) : Container(),
-          Text(
-            widget.item.description,
-          ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Container(
