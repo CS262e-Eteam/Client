@@ -180,7 +180,13 @@ class ItemFormState extends State<ItemForm> {
       Image.file(
         imgUrl,
         height: 200,
-      ) : Container(),
+      ) : Container(
+        alignment: Alignment.center,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 60),
+          child: Text("No Image")
+        )
+      ),
       Padding(
         padding: EdgeInsets.only(bottom: 15),
       ),
@@ -652,23 +658,28 @@ class ItemFormState extends State<ItemForm> {
                   ) : Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Container(
-                          decoration: BoxDecoration(
-                            color: colors.lightGrayBlue,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 50),
-                            child: Text(
-                              "CANCEL",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                              ),
-                              textAlign: TextAlign.center,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: colors.lightGrayBlue,
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
                             ),
-                          )
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 50),
+                              child: Text(
+                                "CANCEL",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {

@@ -159,9 +159,10 @@ class LoginPageState extends State<LoginPage> {
 
 				const SizedBox(height: 30),
 				RaisedButton(
-					child:Text("Log In"),
+					child:Text("Login"),
 					color: colors.teal,
 					onPressed: (){
+						Navigator.pop(context);
 					}
 				),
 				Padding(
