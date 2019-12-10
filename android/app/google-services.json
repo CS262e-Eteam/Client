@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "888487574046",
+    "firebase_url": "https://calvin-marketplace-app-f4c9b.firebaseio.com",
+    "project_id": "calvin-marketplace-app-f4c9b",
+    "storage_bucket": "calvin-marketplace-app-f4c9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888487574046:android:d49aa2fd6e7af75735cc0f",
+        "android_client_info": {
+          "package_name": "cs262.lab03"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888487574046-lisnmv408q7sus9ndb89a4h58mjpk9p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgbCpcRzKRSI-VufVAhBod8q7Cbt48K8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888487574046-lisnmv408q7sus9ndb89a4h58mjpk9p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
