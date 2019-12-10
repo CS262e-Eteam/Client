@@ -7,6 +7,7 @@ import 'package:lab03/components/summary_card.dart';
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/pages/search_delegate.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -19,8 +20,20 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  String test = " -- loading";
+
+  Future<String> testMethod() async {
+    DocumentReference ref = Firestore.instance.collection('test').document('test');
+    print("!!! Found document");
+    DocumentSnapshot snap = await ref.get();
+    print("!!! Found snapshot");
+    return "test";
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("!!!" + test);
+    testMethod();
 
     List<Widget> summaryCards = [];
     globals.testItems.reversed.forEach((item) {

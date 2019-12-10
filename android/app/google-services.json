@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "287935200136",
+    "firebase_url": "https://market-b4ac5.firebaseio.com",
+    "project_id": "market-b4ac5",
+    "storage_bucket": "market-b4ac5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287935200136:android:977ef49e5871e66d88183d",
+        "android_client_info": {
+          "package_name": "cs262.lab03"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287935200136-quv0rfc74pp38ig416usub2lmgvrmf1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVrlnRNi-ZEUZCEdmEPpMgGpw8cd6bpT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287935200136-quv0rfc74pp38ig416usub2lmgvrmf1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
