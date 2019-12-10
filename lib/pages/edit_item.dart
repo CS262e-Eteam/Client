@@ -2,7 +2,10 @@
 Edit Item Page (can also be used to add an item)
  */
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/shared/globals.dart' as globals;
@@ -47,6 +50,7 @@ class ItemFormState extends State<ItemForm> {
 
   List<String> genders = <String>['None', 'Mens', 'Womens', 'Unisex'];
   String itemGender = 'None';
+
   File imgUrl;
 
   bool isEdit = false;
@@ -170,13 +174,12 @@ class ItemFormState extends State<ItemForm> {
     );
   }
 
-
   List<Widget> optionalFields() {
     List<Widget> optionalFields = [
-      Image.asset(
-        'lib/images/test-img.JPG',
+      imgUrl != null ?
+      Image.file(
+        imgUrl,
         height: 200,
-
       ) : Container(
         alignment: Alignment.center,
         child: Padding(
@@ -572,7 +575,7 @@ class ItemFormState extends State<ItemForm> {
       return new Scaffold(
           appBar: AppBar(
             title: Text("New Items"),
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: colors.grayBlue,
           ),
           bottomNavigationBar: Container(
               decoration: const BoxDecoration(

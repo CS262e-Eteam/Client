@@ -13,5 +13,4 @@ they find an item they are interested in, the app will connect the two users to 
 about purchasing the item (potentially using an in-app chat feature, but for the MVP using email).
 
 We intend to build Calvin Marketplace using Flutter which will allow us to simultaneously develop
-for Android and iOS. This would allow us to grow as developers by engaging with a newer technology
-and  also reach a wider audience. The current alternative can be found on Facebook's app which is cross platform so we want to be able to reach the same users. This in turn will allow more items to be offered and users will be able to see the same range of items currently being offered in the Facebook version. The advantage being a more user friendly interface for adding items, viewing currently being sold items only, and searchability of those items.
+for Android and iOS. This will allow users using both platforms to buy and sell items increasing the number of items offered. But users will also have the advantage of a more user friendly interface for adding items, viewing items that are being sold, and searching for specific items by a variety of categories.

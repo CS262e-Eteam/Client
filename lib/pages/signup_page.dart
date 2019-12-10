@@ -31,7 +31,7 @@ class SignUpPageState extends State<SignUpPage> {
 	Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
 			title: Text("Sign Up"),
-			backgroundColor: Theme.of(context).primaryColor,
+			backgroundColor: colors.grayBlue,
 		),
 		body: ListView(
 			padding: EdgeInsets.all(20),
