@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lab03/pages/edit_item.dart';
 import 'package:lab03/pages/home_page.dart';
 import 'package:lab03/pages/login_page.dart';
-import 'package:lab03/pages/Splashscreen.dart';
+
 import 'package:lab03/pages/filter_list.dart';
 
 import 'package:lab03/shared/globals.dart' as globals;
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        home: SplashScreen());
+        home: new HomeScreen());
   }
 }
 
@@ -161,4 +161,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

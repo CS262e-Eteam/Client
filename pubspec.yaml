@@ -24,12 +24,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   font_awesome_flutter: 8.5.0
+  image_picker: ^0.6.0+9
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  material_search: ^0.2.8
-  cloud_firestore: ^0.12.10+2
 
 
 # For information on the generic Dart part of this file, see the
@@ -50,14 +49,8 @@ flutter:
 
   assets:
     - lib/images/test-img.JPG
-    - lib/images/calvin.jpg
-    - lib/images/profilepic.jpeg
-    - lib/images/book.jpeg
-    - lib/images/blue-book.jpg
 
-
-
-         # An image asset can refer to one or more resolution-specific "variants", see
+  # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see

@@ -11,6 +11,9 @@ import 'package:lab03/shared/colors.dart' as colors;
 import 'package:lab03/shared/globals.dart' as globals;
 import 'package:lab03/types/item.dart';
 
+import 'dart:io';
+import 'dart:async';
+
 
 class ItemDetail extends StatefulWidget{
   ItemDetail({Key key, this.item}) : super(key: key);
@@ -54,7 +57,7 @@ class ItemDetailState extends State<ItemDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Item Details"),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: colors.grayBlue,
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
