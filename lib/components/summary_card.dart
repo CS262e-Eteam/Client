@@ -82,7 +82,7 @@ class SummaryCardState extends State<SummaryCard> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Padding (
-                                  padding: EdgeInsets.only(bottom: 15),
+                                  padding: EdgeInsets.only(bottom: 10),
                                 ),
                                 Text(
                                   widget.item.name,

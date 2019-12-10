@@ -4,21 +4,16 @@ Login Page - allows a user to log in or navigate to sign up page
 
 import 'package:flutter/material.dart';
 import 'package:lab03/pages/signup_page.dart';
-import 'package:lab03/pages/home_page.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lab03/shared/colors.dart' as colors;
 
 class LoginPage extends StatefulWidget{
   @override
-//	LoginPageState createState() => new LoginPageState();
   State<StatefulWidget> createState(){
 	return LoginPageState();
   }
 }
 
 class LoginPageState extends State<LoginPage> {
-	String _email, _password;
-	final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final emailLogin = TextEditingController();
   final passwordLogin = TextEditingController();
 //	final itemName = TextEditingController();
@@ -33,45 +28,8 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) => new Scaffold(
 		appBar: AppBar(
 			title: Text("Login"),
-			backgroundColor: colors.grayBlue,
+			backgroundColor: Theme.of(context).primaryColor,
 	  ),
-//		body: Form(
-//			key: _formKey,
-//			child: Column(
-//				children: <Widget>[
-//					TextFormField(
-//						validator: (input) {
-//							if(input.isEmpty) {
-//								return 'Please enter an email';
-//							}
-//							return null;
-//						} ,
-//						onSaved: (input) => _email = input,
-//						decoration: InputDecoration(
-//							labelText: 'Email'
-//						),
-//					),
-//					TextFormField(
-//						validator: (input) {
-//							if(input.length < 6) {
-//								return 'Your password must be atleast 6 characters';
-//							}
-//							return null;
-//						} ,
-//						onSaved: (input) => _password = input,
-//						decoration: InputDecoration(
-//							labelText: 'Password'
-//						),
-//						obscureText: true,
-//					),
-//					RaisedButton(
-//						onPressed: () {} ,
-//						child: Text('Sign in'),
-//					)
-//				],
-//			),
-//		),
-
 		body: ListView(
 			padding: EdgeInsets.all(20),
 			children: <Widget>[
@@ -200,17 +158,4 @@ class LoginPageState extends State<LoginPage> {
 			],
 		)
   );
-
-//  Future<void> signIn() async {
-//  	final formState = _formKey.currentState;
-//  	if(formState.validate()){
-//  		formState.save();
-//  		try {
-//				FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-//				Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-//			}catch(e){
-//  			print(e.message);
-//			}
-//		}
-//	}
 }
